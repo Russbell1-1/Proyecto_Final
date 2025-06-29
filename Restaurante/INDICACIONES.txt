@@ -1,0 +1,65 @@
+Carpeta de Alex: Restaurante
+1. Crea un archivo cabecera
+    #ifndef CABECERAENTRETENIMIENTO_H  
+    #define CABECERAENTRETENIMIENTO_H
+
+    void Menuinicial();     // aqui pon las funciones que declares (usaras) y que codificaras
+                               en el .cpp con el codigo en si, Menuinicial es un ejemplo.
+    #endif                    
+   y guardalo como CabeceraEntretenimiento.h
+
+2. Crea el archivo con tu codigo
+    #include<iostream>
+    #include "CabeceraEntretenimiento.h" //Incluye esta linea para usar el .h
+    using namespace std;
+
+    void Menuinicial(){    //Aqui el codigo que vayas creando como parte de entretenimiento
+                             Menuinicial es un nombre de ejemplo.
+    y guardalo como nombre.cpp //Pon un nombre descriptivo
+
+    en el cpp que crees no deber poner "int main" solo pon las funciones
+
+Si quieres añadir otra funcion en tu mismo archivo cpp añadela como int, float, etc, ejemplo:
+    char Nombre(){  float Nombre(){
+nombre de la funcion y luego en el archivo cabecera declaralo, ejemplo:
+
+    #include<iostream>
+    #include "CabeceraEntretenimiento.h"
+    using namespace std;
+
+    void Menuinicial(){
+         //aqui el codigo de la funcion
+    char Inventario(){
+        //aqui el codigo de la funcion
+
+luego abre el archivo .h y declara la funcion
+
+    #ifndef CABECERAENTRETENIMIENTO_H  
+    #define CABECERAENTRETENIMIENTO_H
+
+    void Menuinicial();     
+    char Inventario();
+    #endif      
+
+O si quieres crear otro archivo cpp, crealo y añade la linea 
+
+    #include<iostream>
+    #include "CabeceraEntretenimiento.h"
+    using namespace std;
+
+y las funciones que crees, declaralas en el .h
+
+3. Haz un add al .h y commit con el mensaje "Añadi archivo cabecera para Entretenimiento" luego push
+4. Haz un add al .cpp y commit descriptivo de lo que hace    
+
+Nota: Todos crearemos solo un .h y cada vez que declares una nueva funcion en esta, commit descriptivo
+      los cpp pueden ser varios pero no se olviden de incluir la linea #include "CabeceraEntretenimiento.h" en cada uno      
+
+5. Abre el .dev que dice Sistema de Hoteleria, busca la pestaña arriba que dice Proyecto y dale "añadir a proyecto", añade 
+   el .h y los .cpp que vayas creando
+6. Haz un add al .dev y commit indicando que archivos añadiste al proyecto
+
+Nota: Yo (Russbell) me encargare de hacer include de sus .h en mi codigo de Hotel, que en si es la base. Alli llamare a sus funciones
+      por ejemplo en dado momento dire "Desea algun sevicio extra 1. Restaurant 2. entretenimiento"
+      y si escogiera Entretenimiento llamare solo a la funcion de mauricio y de ahi en mas, es todo tu trabajo.
+ 
