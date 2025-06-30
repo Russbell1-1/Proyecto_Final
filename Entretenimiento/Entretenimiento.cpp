@@ -28,7 +28,7 @@ void OpcionCine() {
     cout << "Entrada general: S/12.00\n";
 }
 
-void MenuEntretinimiento() {
+void MenuEntrenimiento() {
     int opcion;
     do {
         cout << "===== MENU DE ENTRETENIMIENTO =====" << endl;
