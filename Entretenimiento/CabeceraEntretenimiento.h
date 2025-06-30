@@ -1,7 +1,7 @@
 #ifndef CABECERAENTRETENIMIENTO_H  
 #define CABECERAENTRETENIMIENTO_H
 
-void Menuinicial();
+void MenuEntrenimiento();
 void OpcionBillar();
 void OpcionKaraoke();
 void OpcionCasino();
