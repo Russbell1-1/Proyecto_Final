@@ -1,8 +1,8 @@
 #include <iostream>
-#include "Menu.h"
+#include "CabeceraEntretenimiento.h"
 using namespace std;
 
 int main(){
-	Menuinicial();
+	MenuEntrenimiento();
 	return 0;
 }

@@ -1,5 +1,5 @@
 #ifndef MENU_H
-#define MENU_h
+#define MENU_H
 
 void Menuinicial();
 
