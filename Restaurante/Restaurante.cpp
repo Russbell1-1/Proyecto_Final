@@ -1,44 +1,41 @@
 #include <iostream>
 #include "Restaurante.h"
 using namespace std;
+// Se dividio en dos interfaces trabajador y huesped - ME TOCO TRABAJADOR A SI CAMBIARE DE PERSPECTIVA EN EL CPP
 
-void gestionarMesa(){
+void menuTrabajador(){
     int opcion;
     do {
-        cout << "==== GESTION DE MESAS ====";
-        cout << "1. Crear mesas " << endl;
-        cout << "2. Modificar mesas" << endl;    
-        cout << "3. Asignar cliente a mesas" << endl;
-        cout << "4. Unir o dividir mesas " << endl;
-        cout << "5. Eliminar mesas" << endl;
-        cout << "6. Ver mapa de mesas" << endl;
-        cout << "7. Salir" << endl;
-        
-        cout << "Ingrese la opcion" << endl;
+        cout << "  === MENU TRABAJADOR ===  " << endl;
+        cout << "1. Mostrar mapa de mesas" << endl;
+        cout << "2. Agregar reserva "<< endl;
+        cout << "3. Eliminar reserva " << endl;
+        cout << "4. Recibir pedido a cuarto "<< endl;
+        cout << "5. Salir" << endl;
+        cout << "Seleccione una opcion: ";
         cin >> opcion;
-
+        string habitacion, pedido, cliente;
+        double montopedido;
         switch (opcion) {
-            case 1:  
+            case 1: 
                 break;
             case 2:  
                 break;
-            case 3:
+            case 3: 
                 break;
-            case 4: 
+            case 4:
                 break;
             case 5: 
+                cout << "Saliendo del sistema del trabajador." << endl;
                 break;
-            case 6: 
-                break;
-            case 7: 
-                cout << "Volviendo al menú principal...\n"; break;
             default: 
-                cout << "Opción inválida.\n";
+                cout << "Opcion invalida." << endl;
+                break;
         }
-    } while (opcion != 7);
+    } while (opcion != 5);
 }
 
 int main(){
-    gestionarMesa();
+    menuTrabajador();
 	return 0;
 }
