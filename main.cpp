@@ -3,6 +3,6 @@
 using namespace std;
 
 int main(){
-	Menuinicial();
+	MostrarBienvenida;
 	return 0;
 }
