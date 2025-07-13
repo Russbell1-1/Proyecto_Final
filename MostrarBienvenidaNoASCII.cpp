@@ -15,8 +15,8 @@ void MostrarBienvenida(){
 	cout<<"¦         BIENVENIDO AL SISTEMA DEL HOTEL      ¦\n";
 	cout<<"¦                                              ¦\n";
 	cout<<"¦----------------------------------------------¦\n";
-	cout<<"¦    Gestión de habitaciones y servicios       ¦\n";
-	cout<<"¦    Atención 24/7 - ¡Su comodidad primero!    ¦\n";
+	cout<<"¦    Gestion de habitaciones y servicios       ¦\n";
+	cout<<"¦    Atencion 24/7 - ¡Su comodidad primero!    ¦\n";
 	cout<<"+----------------------------------------------+\n";
 	
 	SetConsoleTextAttribute(hConsole,15); // Restaurar color
