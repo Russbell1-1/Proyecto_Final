@@ -27,6 +27,7 @@ void MostrarBienvenida();
 void Menuinicial();
 void ListarClientes();
 void BuscarHabitacion();
+void ActualizarReserva();
 
 #endif
 
