@@ -1,6 +1,7 @@
 #include<iostream>
 #include<windows.h>
 #include "Menu.h"
+#include "Restaurante.h"
 using namespace std;
 
 void Menuinicial(){
@@ -16,7 +17,7 @@ void Menuinicial(){
         cout<<"6. Listar huespedes ordenados\n";
         cout<<"7. Analisis de datos\n";
         cout<<"8. Acceder al Restaurante\n";
-        cout<<"8.Salir";
+        cout<<"9.Salir";
         cout<<"Seleccione una opcion: ";
         cin>>op;
 
@@ -28,7 +29,7 @@ void Menuinicial(){
             case 5: CalcularMonto(); break;
             case 6: ListarHuespedesOrdenados(); break;
             case 7: AnalisisDeDatos(); break;
-            case 8: 
+             
         }
-    }while(op!=8);
+    }while(op!=9);
 }
