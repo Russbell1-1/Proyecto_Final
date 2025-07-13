@@ -8,14 +8,13 @@ void Menuinicial(){
     do{
         system("cls");
         cout<<"===== SISTEMA DE GESTION HOTELERA =====\n";
-        cout<<"1. Registrar huesped\n";
-        cout<<"2. Reservar habitacion\n";
-        cout<<"3. Listar habitaciones\n";
-        cout<<"4. Buscar habitacion\n";
-        cout<<"5. Actualizar datos de reserva\n";
-        cout<<"6. Calcular monto total\n";
-        cout<<"7. Listar huespedes ordenados\n";
-        cout<<"8. Salir\n";
+        cout<<"1. Reservar habitacion\n";
+        cout<<"2. Listar habitaciones\n";
+        cout<<"3. Buscar habitacion\n";
+        cout<<"4. Actualizar datos de reserva\n";
+        cout<<"5. Calcular monto total\n";
+        cout<<"6. Listar huespedes ordenados\n";
+        cout<<"7. Salir\n";
         cout<<"Seleccione una opcion: ";
         cin>>op;
 
