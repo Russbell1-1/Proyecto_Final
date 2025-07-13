@@ -28,6 +28,7 @@ void Menuinicial();
 void ListarClientes();
 void BuscarHabitacion();
 void ActualizarReserva();
+void CalcularMonto();
 
 #endif
 

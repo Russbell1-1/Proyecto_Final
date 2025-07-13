@@ -23,7 +23,7 @@ void Menuinicial(){
             case 2: ListarClientes(); break;
             case 3: BuscarHabitacion(); break;
             case 4: ActualizarReserva(); break;
-            case 5: /*CalcularMonto();*/ break;
+            case 5: CalcularMonto(); break;
             case 6: /*OrdenarHuespedes();*/ break;
         }
     }while(op!=7);
