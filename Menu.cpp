@@ -20,7 +20,7 @@ void Menuinicial(){
         cin>>op;
 
         switch(op){
-            case 1: /*RegistrarHuesped();*/ break;
+            case 1: RegistrarHuesped(); break;
             case 2: /*ReservarHabitacion();*/ break;
             case 3: /*ListarHabitaciones();*/ break;
             case 4: /*BuscarHabitacion();*/ break;
