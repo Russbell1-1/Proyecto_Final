@@ -27,6 +27,49 @@ void reservarmesa(){
 	}
 }
 
+struct entradas{
+	char id;
+	string nombre;
+	float precio;
+	int stock;
+};
+
+void ver_entradas(){
+	
+}
+
+struct platos{
+	char id;
+	string nombre;
+	float precio;
+	int stock;
+}
+
+void ver_platos(){
+	
+}
+
+struct bebidas{
+	char id;
+	string nombre;
+	float precio;
+	int stock;
+};
+
+void ver_bebidas(){
+	
+}
+
+struct postres{
+	char id;
+	string nombre;
+	float precio;
+	int stock;
+};
+
+void ver_postres(){
+	
+}
 
 
 void ver_carta(){
@@ -36,23 +79,24 @@ void ver_carta(){
 		cout<<"2. Platos"<<endl;
 		cout<<"3. Bedidas"<<endl;
 		cout<<"4. Postres"<<endl;
+		cout<<"5. Salir"<<endl;
 		cin>>ver_carta;
 		switch(ver_carta){
 		case 1:
 			//Entradas
-			
+			ver_entradas();
 			break;
 		case 2:
 			//Platos
-			
+			ver_platos();
 			break;
 		case 3:
 			//Bebidas
-			
+			ver_bebidas();
 			break;
 		case 4:
 			//Postres
-			
+			ver_postres();
 			break;
 		case 5:
 			//Salir
