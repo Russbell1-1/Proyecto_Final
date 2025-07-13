@@ -26,6 +26,7 @@ void RegistrarHuesped();
 void MostrarBienvenida();
 void Menuinicial();
 void ListarClientes();
+void BuscarHabitacion();
 
 #endif
 

@@ -21,7 +21,7 @@ void Menuinicial(){
         switch(op){
             case 1: RegistrarHuesped(); break;
             case 2: ListarClientes(); break;
-            case 3: /*BuscarHabitacion();*/ break;
+            case 3: BuscarHabitacion(); break;
             case 4: /*ActualizarReserva();*/ break;
             case 5: /*CalcularMonto();*/ break;
             case 6: /*OrdenarHuespedes();*/ break;

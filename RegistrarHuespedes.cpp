@@ -27,10 +27,11 @@ void RegistrarHuesped(){
 	}
 	
 	Cliente nuevo;
+	cin.ignore(); // limpiar buffer para getline
 	cout<<"Nombre: ";
-	cin>>nuevo.nombre;
+	cin.getline(nuevo.nombre,30);
 	cout<<"Apellido: ";
-	cin>>nuevo.apellido;
+	cin.getline(nuevo.apellido,30);
 	cout<<"Edad: ";
 	cin>>nuevo.edad;
 	
