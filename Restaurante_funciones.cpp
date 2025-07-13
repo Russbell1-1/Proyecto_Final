@@ -5,6 +5,21 @@ using namespace std;
 const int TAM = 10;
 int mesasdisponibles=16;
 
+void main_restaurante(){
+    char menu_usuario_rest;
+    cout<<"Ingrese el usuario: "<<endl;
+    cout<<"a. Cliente"<<endl;
+    cout<<"b. Trabajador"<<endl;
+    cout<<"c. Administrador"<<endl;
+    cin>>menu_usuario_rest;
+    switch(menu_usuario_rest){
+        case 'a': menu_cliente(); break;
+        case 'b': menu_trabajador(); break;
+        case 'c': menu_administrador(); break;
+        default: cout<<"ERROR: Ingrese una opcion valida"<<endl;
+    }
+}
+
 
 char mesa[4][4]={
 	{'D','D','D','D'},

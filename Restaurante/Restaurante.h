@@ -1,8 +1,6 @@
 #ifndef RESTAURANTE_H
 #define RESTAURANTE_H
 
-#include <string>
-#include <map>
 using namespace std;
 
 extern int mesasDisponibles;
@@ -16,7 +14,7 @@ extern string historialHabitacion[pedidosMaximos];
 extern string historialPedido[pedidosMaximos];
 extern double historialMonto[pedidosMaximos];
 
-// Declaración de funciones
+// Declaracion de funciones
 void mostrarMapaMesas();
 void agregarReservaTrabajador();
 void eliminarReservaTrabajador();
