@@ -4,6 +4,7 @@ using namespace std;
 const int TAM = 10;
 int mesasdisponibles=16;
 
+
 char mesa[4][4]={
 	{'D','D','D','D'},
     {'D','D','D','D'},
@@ -11,47 +12,23 @@ char mesa[4][4]={
     {'D','D','D','D'}
 };
 
+struct Comida {
+    char id;
+    string nombre;
+    float precio;
+    int stock;
+};
 
 
-//ADMINISTRADOR
 
-void administrador(){
-	char menu_admin;
-	do{
-	cout<<"Seleccione la opcion"<<endl;
-	cout<<"a. Agregar comida"<<endl;
-	cout<<"b. Modificar comida"<<endl;
-	cout<<"c. Eliminar comida"<<endl;
-	cout<<"d. Agregar stock"<<endl;
-	cout<<"e. Salir"<<endl;
-	cin>>menu_admin;
-	}while(menu_admin!='e');
-	switch (menu_admin){
-			case 'a':
-				//Agregar comida
-				agregar_comida();
-				break;
-			case 'b':
-				//Modificar comida
-				modificar_comida();
-				break;
-			case 'c':
-				//Eliminar comida
-				eliminar_comida();
-				break;
-			case 'd':
-				//Agregar stock
-				agregar_stock();
-				break;
-			case 'e':
-				//Salir del programa
-				cout<<"Programa finalizado"<<endl;
-				break;	
-			default:
-				//Repetir menu hasta elegir una opcion
-				cout<<"ERROR: Eliga una opcion del menu (a, b, c, d, e)"<<endl<<endl;
-				break;
-}
+
+
+
+
+
+
+
+
 
 
 
@@ -75,6 +52,13 @@ void reservarmesa(){
 		cout<<"No hay mesas disponible para reservar"<<endl;
 	}
 }
+
+
+
+
+
+
+
 
 
 
@@ -228,10 +212,318 @@ void ver_carta(){
 }
 
 
-int main(){
+
+
+
+//ADMINISTRADOR
+
+int seleccionar_tipo_comida(){
+	int tipo_opcion;
+
+	cout<<"Seleccione tipo de comida para "<<endl;
+    cout<<"1. Entradas"<<endl;
+    cout<<"2. Platos"<<endl;
+    cout<<"3. Bebidas"<<endl;
+    cout<<"4. Postres"<<endl;
+    cout<<"5. Salir"<<endl;
+    cin >> tipo_opcion;
+    if(tipo_opcion>=1 && tipo_opcion<=4){
+    	return tipo_opcion;
+	}else{
+		cout << "Opción inválida."<<endl;
+		return 0;
+	}
+
+}
+
+
+void agregar_comida(){
+	int tipo_comida=seleccionar_tipo_comida();
+	if(tipo_comida==0){
+		return;
+	}
 	
 
 	
+    char id;
+    string nombre;
+    float precio;
+    int stock;
+    
+	cout<<"ID (una letra): ";
+    cin>>id;
+    cin.ignore();
+    cout<<"Nombre: ";
+    getline(cin, nombre);
+    cout<<"Precio: ";
+    cin>>precio;
+    cout<<"Stock: ";
+    cin>>stock;
+    
+    switch(tipo_comida){
+        case 1:
+            if(cant_entradas>=TAM){
+                cout<<"Límite de entradas alcanzado"<<endl;
+                return;
+            }
+            lista_entradas[cant_entradas++]={id, nombre, precio, stock};
+            break;
+        case 2:
+            if(cant_platos>=TAM){
+                cout<<"Límite de platos alcanzado"<<endl;
+                return;
+            }
+            lista_platos[cant_platos++]={id, nombre, precio, stock};
+            break;
+        case 3:
+            if(cant_bebidas>=TAM){
+                cout<<"Límite de bebidas alcanzado"<<endl;
+                return;
+            }
+            lista_bebidas[cant_bebidas++]={id, nombre, precio, stock};
+            break;
+        case 4:
+            if(cant_postres>=TAM){
+                cout<<"Límite de postres alcanzado"<<endl;
+                return;
+            }
+            lista_postres[cant_postres++]={id, nombre, precio, stock};
+            break;
+    }
+    
+    cout<<"Comida agregada exitosamente"<<endl;
+}
+
+void modificar_comida(){
+    int tipo_comida = seleccionar_tipo_comida();
+    if (tipo_comida == 0) return;
+    
+	char id;
+    cout<<"Ingrese ID de la comida a modificar: ";
+    cin>>id;
+    
+    switch(tipo_comida){
+       case 1:
+            for(int i=0; i<cant_entradas; i++){
+                if(lista_entradas[i].id == id){
+                    cin.ignore();
+                    cout << "Nuevo nombre: ";
+                    getline(cin, lista_entradas[i].nombre);
+                    cout << "Nuevo precio: ";
+                    cin >> lista_entradas[i].precio;
+                    cout << "Nuevo stock: ";
+                    cin >> lista_entradas[i].stock;
+                    cout << "Comida modificada.\n";
+                    return;
+                }
+            }
+            break;
+        case 2:
+            for(int i=0; i<cant_platos; i++){
+                if(lista_platos[i].id == id){
+                    cin.ignore();
+                    cout << "Nuevo nombre: ";
+                    getline(cin, lista_platos[i].nombre);
+                    cout << "Nuevo precio: ";
+                    cin >> lista_platos[i].precio;
+                    cout << "Nuevo stock: ";
+                    cin >> lista_platos[i].stock;
+                    cout << "Comida modificada.\n";
+                    return;
+                }
+            }
+            break;
+        case 3:
+            for(int i=0; i<cant_bebidas; i++){
+                if(lista_bebidas[i].id == id){
+                    cin.ignore();
+                    cout << "Nuevo nombre: ";
+                    getline(cin, lista_bebidas[i].nombre);
+                    cout << "Nuevo precio: ";
+                    cin >> lista_bebidas[i].precio;
+                    cout << "Nuevo stock: ";
+                    cin >> lista_bebidas[i].stock;
+                    cout << "Comida modificada.\n";
+                    return;
+                }
+            }
+            break;
+        case 4:
+            for(int i=0; i<cant_postres; i++){
+                if(lista_postres[i].id == id){
+                    cin.ignore();
+                    cout << "Nuevo nombre: ";
+                    getline(cin, lista_postres[i].nombre);
+                    cout << "Nuevo precio: ";
+                    cin >> lista_postres[i].precio;
+                    cout << "Nuevo stock: ";
+                    cin >> lista_postres[i].stock;
+                    cout << "Comida modificada.\n";
+                    return;
+                }
+            }
+            break;
+    }
+    cout<<"ID no encontrado"<<endl;
+}
+
+void eliminar_comida(){
+	int tipo_comida = seleccionar_tipo_comida();
+    if (tipo_comida == 0) return;
+    
+    char id;
+    cout<<"Ingrese ID de la comida a eliminar: ";
+    cin>>id;
+    
+    switch(tipo_comida){
+        case 1:
+            for (int i = 0; i < cant_entradas; i++) {
+                if (lista_entradas[i].id == id) {
+                    lista_entradas[i] = lista_entradas[cant_entradas - 1];
+                    cant_entradas--;
+                    cout << "Comida eliminada.\n";
+                    return;
+                }
+            }
+            break;
+        case 2:
+            for (int i = 0; i < cant_platos; i++) {
+                if (lista_platos[i].id == id) {
+                    lista_platos[i] = lista_platos[cant_platos - 1];
+                    cant_platos--;
+                    cout << "Comida eliminada.\n";
+                    return;
+                }
+            }
+            break;
+        case 3:
+            for (int i = 0; i < cant_bebidas; i++) {
+                if (lista_bebidas[i].id == id) {
+                    lista_bebidas[i] = lista_bebidas[cant_bebidas - 1];
+                    cant_bebidas--;
+                    cout << "Comida eliminada.\n";
+                    return;
+                }
+            }
+            break;
+        case 4:
+            for (int i = 0; i < cant_postres; i++) {
+                if (lista_postres[i].id == id) {
+                    lista_postres[i] = lista_postres[cant_postres - 1];
+                    cant_postres--;
+                    cout << "Comida eliminada.\n";
+                    return;
+                }
+            }
+            break;
+    }
+    cout<<"ID no encontrado"<<endl;
+}
+
+void agregar_stock() {
+	int tipo_comida = seleccionar_tipo_comida();
+    if (tipo_comida == 0) return;
+    char id;
+    int cantidad;
+    cout << "Ingrese ID de la comida: ";
+    cin >> id;
+
+    switch(tipo_comida){
+        case 1:
+            for (int i = 0; i < cant_entradas; i++) {
+                if (lista_entradas[i].id == id) {
+                    cout << "¿Cuánto stock desea agregar?: ";
+                    cin >> cantidad;
+                    lista_entradas[i].stock += cantidad;
+                    cout << "Nuevo stock: " << lista_entradas[i].stock << endl;
+                    return;
+                }
+            }
+            break;
+        case 2:
+            for (int i = 0; i < cant_platos; i++) {
+                if (lista_platos[i].id == id) {
+                    cout << "¿Cuánto stock desea agregar?: ";
+                    cin >> cantidad;
+                    lista_platos[i].stock += cantidad;
+                    cout << "Nuevo stock: " << lista_platos[i].stock << endl;
+                    return;
+                }
+            }
+            break;
+        case 3:
+            for (int i = 0; i < cant_bebidas; i++) {
+                if (lista_bebidas[i].id == id) {
+                    cout << "¿Cuánto stock desea agregar?: ";
+                    cin >> cantidad;
+                    lista_bebidas[i].stock += cantidad;
+                    cout << "Nuevo stock: " << lista_bebidas[i].stock << endl;
+                    return;
+                }
+            }
+            break;
+        case 4:
+            for (int i = 0; i < cant_postres; i++) {
+                if (lista_postres[i].id == id) {
+                    cout << "¿Cuánto stock desea agregar?: ";
+                    cin >> cantidad;
+                    lista_postres[i].stock += cantidad;
+                    cout << "Nuevo stock: " << lista_postres[i].stock << endl;
+                    return;
+                }
+            }
+            break;
+    }
+
+    cout << "ID no encontrado"<<endl;
+}
+
+
+void menu_trabajador(){
+}
+
+
+void menu_administrador(){
+	char menu_admin;
+	do{
+		cout<<"Seleccione la opcion"<<endl;
+		cout<<"a. Agregar comida"<<endl;
+		cout<<"b. Modificar comida"<<endl;
+		cout<<"c. Eliminar comida"<<endl;
+		cout<<"d. Agregar stock"<<endl;
+		cout<<"e. Salir"<<endl;
+		cin>>menu_admin;
+	
+	switch (menu_admin){
+			case 'a':
+				//Agregar comida
+				agregar_comida();
+				break;
+			case 'b':
+				//Modificar comida
+				modificar_comida();
+				break;
+			case 'c':
+				//Eliminar comida
+				eliminar_comida();
+				break;
+			case 'd':
+				//Agregar stock
+				agregar_stock();
+				break;
+			case 'e':
+				//Salir del programa
+				cout<<"Programa finalizado"<<endl;
+				break;	
+			default:
+				//Repetir menu hasta elegir una opcion
+				cout<<"ERROR: Eliga una opcion del menu (a, b, c, d, e)"<<endl<<endl;
+				break;
+	}
+	}while(menu_admin!='e');
+}
+
+void menu_cliente(){
 	char menu_opcion;
 	//Declaración de variable de menú
 	char menu;
@@ -241,7 +533,7 @@ int main(){
 		cout<<"INGRESE UNA OPCION"<<endl;
 		cout<<"a) Ver carta"<<endl;
 		cout<<"b) Reservar mesa"<<endl;
-		cout<<"c) "<<endl;
+		cout<<"c) Administrador"<<endl;
 		cout<<"d) "<<endl;
 		cout<<"e) Salir del programa"<<endl<<endl;
 		cin>>menu_opcion;
@@ -257,7 +549,7 @@ int main(){
 				break;
 			case 'c':
 				//Mostrar lista de contactos registrados
-				
+				menu_administrador();
 				break;
 			case 'd':
 				//Mostrar contactos existentes, ordenado por correo
@@ -274,3 +566,29 @@ int main(){
 	}
 	}while(menu_opcion!='e');
 }
+
+int main(){
+	char menu_usuario_rest;
+	cout<<"Ingrese el usuario: "<<endl;
+	cout<<"a. Cliente"<<endl;
+	cout<<"b. Trabajador"<<endl;
+	cout<<"c. Administrador"<<endl;
+	cin>>menu_usuario_rest;
+	switch(menu_usuario_rest){
+		case 'a':
+			menu_cliente();
+			break;
+		case 'b':
+			menu_trabajador();
+			break;
+		case 'c':
+			menu_administrador();
+			break;
+		default:
+			cout<<"ERROR: Ingrese una opcion valida"<<endl;
+	}
+
+	
+	return 0;
+}
+
