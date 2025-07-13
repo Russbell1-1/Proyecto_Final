@@ -14,7 +14,8 @@ void Menuinicial(){
         cout<<"4. Actualizar datos de reserva\n";
         cout<<"5. Calcular monto total\n";
         cout<<"6. Listar huespedes ordenados\n";
-        cout<<"7. Salir\n";
+        cout<<"7. Analisis de datos\n";
+        cout<<"8.Salir";
         cout<<"Seleccione una opcion: ";
         cin>>op;
 
@@ -24,7 +25,8 @@ void Menuinicial(){
             case 3: BuscarHabitacion(); break;
             case 4: ActualizarReserva(); break;
             case 5: CalcularMonto(); break;
-            case 6: /*OrdenarHuespedes();*/ break;
+            case 6: ListarHuespedesOrdenados(); break;
+            case 7: AnalisisDeDatos(); break;
         }
-    }while(op!=7);
+    }while(op!=8);
 }

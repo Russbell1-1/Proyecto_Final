@@ -29,6 +29,8 @@ void ListarClientes();
 void BuscarHabitacion();
 void ActualizarReserva();
 void CalcularMonto();
+void ListarHuespedesOrdenados();
+void AnalisisDeDatos();
 
 #endif
 
