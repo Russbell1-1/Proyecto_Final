@@ -1,27 +1,27 @@
 #ifndef RESTAURANTE_H
 #define RESTAURANTE_H
 
-// Declaraciones de constantes
-const int FILAS = 4;
-const int COLUMNAS = 4;
-const int pedidosmaximos = 50;
+#include <string>
+#include <map>
+using namespace std;
 
-// Variables externas (definidas en Restaurante.cpp)
-extern char mapaMesas[FILAS][COLUMNAS];
+extern int mesasDisponibles;
+extern char mapaMesas[4][4];
+extern map<string, double> cuentasHabitacion;
+
+const int pedidosMaximos = 50;
 extern int cantPedidos;
-extern string historialCliente[pedidosmaximos];
-extern string historialHabitacion[pedidosmaximos];
-extern string historialPedido[pedidosmaximos];
-extern double historialMonto[pedidosmaximos];
+extern string historialCliente[pedidosMaximos];
+extern string historialHabitacion[pedidosMaximos];
+extern string historialPedido[pedidosMaximos];
+extern double historialMonto[pedidosMaximos];
 
 // Declaración de funciones
-void inicializarMesas();
 void mostrarMapaMesas();
-void agregarReserva();
-void eliminarReserva();
-void pedirACuarto(string& habitacion, string& cliente, string& pedido, double& montopedido);
+void agregarReservaTrabajador();
+void eliminarReservaTrabajador();
+void pedirACuarto();
+void verHistorialPedidos();
 void menuTrabajador();
 
 #endif
-
-
