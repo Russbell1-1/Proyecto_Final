@@ -91,11 +91,11 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=MostrarBienvenida.cpp
-CompileCpp=1
+FileName=MostrarBienvenidaNoASCII.cpp
+CompileCpp=0
 Folder=
-Compile=1
-Link=1
+Compile=0
+Link=0
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
