@@ -20,12 +20,11 @@ void Menuinicial(){
 
         switch(op){
             case 1: RegistrarHuesped(); break;
-            case 2: /*ReservarHabitacion();*/ break;
-            case 3: /*ListarHabitaciones();*/ break;
-            case 4: /*BuscarHabitacion();*/ break;
-            case 5: /*ActualizarReserva();*/ break;
-            case 6: /*CalcularMonto();*/ break;
-            case 7: /*OrdenarHuespedes();*/ break;
+            case 2: ListarClientes(); break;
+            case 3: /*BuscarHabitacion();*/ break;
+            case 4: /*ActualizarReserva();*/ break;
+            case 5: /*CalcularMonto();*/ break;
+            case 6: /*OrdenarHuespedes();*/ break;
         }
-    }while(op!=8);
+    }while(op!=7);
 }

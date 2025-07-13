@@ -11,13 +11,17 @@ void ListarClientes(){
 	if(totalClientes==0){
 		cout<<"No hay clientes registrados.\n";
 		return;
+		system("pause");
 	}
-	cout<<"\nLista de clientes registrados:\n";
+	cout<<"Lista de Clientes Registrados:\n";
 	for(int i=0;i<totalClientes;i++){
-		cout<<i+1<<". ";
-		cout<<"Nombre: "<<clientes[i].nombre<<" ";
-		cout<<clientes[i].apellido<<", Edad: "<<clientes[i].edad;
-		cout<<", Piso: "<<clientes[i].piso<<", Habitación: "<<clientes[i].habitacion<<endl;
+		cout<<"Cliente "<<i+1<<":\n";
+		cout<<"Nombre: "<<clientes[i].nombre<<"\n";
+		cout<<"Apellido: "<<clientes[i].apellido<<"\n";
+		cout<<"Edad: "<<clientes[i].edad<<"\n";
+		cout<<"Habitacion: Piso "<<clientes[i].piso<<", Nro "<<clientes[i].habitacion<<"\n";
+		cout<<"--------------------------\n";
 	}
-}
+			system("pause");
 
+}
