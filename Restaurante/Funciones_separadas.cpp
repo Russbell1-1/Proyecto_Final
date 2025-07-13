@@ -11,6 +11,53 @@ char mesa[4][4]={
     {'D','D','D','D'}
 };
 
+
+
+//ADMINISTRADOR
+
+void administrador(){
+	char menu_admin;
+	do{
+	cout<<"Seleccione la opcion"<<endl;
+	cout<<"a. Agregar comida"<<endl;
+	cout<<"b. Modificar comida"<<endl;
+	cout<<"c. Eliminar comida"<<endl;
+	cout<<"d. Agregar stock"<<endl;
+	cout<<"e. Salir"<<endl;
+	cin>>menu_admin;
+	}while(menu_admin!='e');
+	switch (menu_admin){
+			case 'a':
+				//Agregar comida
+				agregar_comida();
+				break;
+			case 'b':
+				//Modificar comida
+				modificar_comida();
+				break;
+			case 'c':
+				//Eliminar comida
+				eliminar_comida();
+				break;
+			case 'd':
+				//Agregar stock
+				agregar_stock();
+				break;
+			case 'e':
+				//Salir del programa
+				cout<<"Programa finalizado"<<endl;
+				break;	
+			default:
+				//Repetir menu hasta elegir una opcion
+				cout<<"ERROR: Eliga una opcion del menu (a, b, c, d, e)"<<endl<<endl;
+				break;
+}
+
+
+
+
+//RESERVAR MESA
+
 void reservarmesa(){
 	if(mesasdisponibles>0){
 		cout<<"Ingrese la cantidad de personas"<<endl;
@@ -29,6 +76,11 @@ void reservarmesa(){
 	}
 }
 
+
+
+
+//CARTA DE COMIDAS
+
 struct entradas{
 	char id;
 	string nombre;
@@ -37,16 +89,17 @@ struct entradas{
 };
 
 entradas lista_entradas[TAM]={
+
         {'A', "Ensalada", 10.00, 20},
         {'B', "Sopa", 10.00, 20},
         {'C', "Causa", 12.00, 20},
         {'D', "Ceviche", 15.00, 20},
         {'E', "Tamal", 5.00, 20}
     };
-
+	int cant_entradas=5;
 void ver_entradas(){
 	cout<<"Listado de entradas disponibles:"<<endl;
-    for(int i=0;i<TAM;++i){
+    for(int i=0;i<cant_entradas;++i){
         cout<<"ID: "<<lista_entradas[i].id;
         cout<<", Nombre: "<<lista_entradas[i].nombre;
         cout<<", Precio: "<<lista_entradas[i].precio;
@@ -62,16 +115,18 @@ struct platos{
 };
 
 platos lista_platos[TAM]={
+
         {'A', "Parillada", 20.00, 40},
         {'B', "Chaufa", 16.00, 40},
         {'C', "Lomo saltado", 18.00, 40},
         {'D', "Aji de gallina", 16.00, 40},
         {'E', "Spaggeti", 18.00, 40}
     };
-
+	int cant_platos=5;
+	
 void ver_platos(){
 	cout<<"Listado de platos disponibles:"<<endl;
-    for(int i=0;i<TAM;++i){
+    for(int i=0;i<cant_platos;++i){
         cout<<"ID: "<<lista_platos[i].id;
         cout<<", Nombre: "<<lista_platos[i].nombre;
         cout<<", Precio: "<<lista_platos[i].precio;
@@ -87,16 +142,18 @@ struct bebidas{
 };
 
 bebidas lista_bebidas[TAM]={
+
         {'A', "Gaseosa 2L", 10.00, 40},
         {'B', "Jarra de jugo 1L", 12.00, 40},
         {'C', "Tasa de infusión", 6.00, 40},
         {'D', "Botella de vino", 16.00, 40},
         {'E', "Tasa de cafe", 8.00, 40}
     };
-
+	int cant_bebidas=5;
+	
 void ver_bebidas(){
 	cout<<"Listado de bebidas disponibles:"<<endl;
-    for(int i=0;i<TAM;++i){
+    for(int i=0;i<cant_bebidas;++i){
         cout<<"ID: "<<lista_bebidas[i].id;
         cout<<", Nombre: "<<lista_bebidas[i].nombre;
         cout<<", Precio: "<<lista_bebidas[i].precio;
@@ -112,17 +169,18 @@ struct postres{
 };
 
 postres lista_postres[TAM]={
+
         {'A', "Tajada de torta", 7.00, 40},
         {'B', "Arroz con leche", 5.00, 40},
         {'C', "Mazamorra morada", 5.00, 40},
         {'D', "Brownie", 4.00, 40},
         {'E', "Helado", 8.00, 40}
     };
-
+	int cant_postres=5;
 
 void ver_postres(){
 	cout<<"Listado de postres disponibles:"<<endl;
-    for(int i=0;i<TAM;++i){
+    for(int i=0;i<cant_postres;++i){
         cout<<"ID: "<<lista_postres[i].id;
         cout<<", Nombre: "<<lista_postres[i].nombre;
         cout<<", Precio: "<<lista_postres[i].precio;
@@ -181,21 +239,21 @@ int main(){
 	//Bucle de menú del restaurante
 	do{
 		cout<<"INGRESE UNA OPCION"<<endl;
-		cout<<"a) T"<<endl;
-		cout<<"b) Ver carta"<<endl;
-		cout<<"c) Mostrar lista de contactos registrados"<<endl;
-		cout<<"d) Mostrar contactos existentes, ordenado por correo"<<endl;
+		cout<<"a) Ver carta"<<endl;
+		cout<<"b) Reservar mesa"<<endl;
+		cout<<"c) "<<endl;
+		cout<<"d) "<<endl;
 		cout<<"e) Salir del programa"<<endl<<endl;
 		cin>>menu_opcion;
 	
 		switch (menu_opcion){
 			case 'a':
 				//Agregar un contacto
-				reservarmesa();
+				ver_carta();
 				break;
 			case 'b':
 				//Eliminar un contacto
-				ver_carta();
+				reservarmesa();
 				break;
 			case 'c':
 				//Mostrar lista de contactos registrados
