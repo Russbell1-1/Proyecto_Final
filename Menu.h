@@ -1,12 +1,12 @@
 #ifndef MENU_H
 #define MENU_H
 
-// Constantes
+//Constantes 
 const int FILAS=3;
 const int COLUMNAS=4;
 const int MAX_CLIENTES=50;
 
-// Estructura que se reutilizara
+//Estructura que se reutilizara
 struct Cliente{
 	char nombre[30];
 	char apellido[30];
@@ -15,16 +15,17 @@ struct Cliente{
 	int habitacion;
 };
 
-// Variables globales (declaradas externamente)
+//Variables globales (declaradas externamente)
 extern Cliente clientes[MAX_CLIENTES];
 extern bool habitaciones[FILAS][COLUMNAS];
 extern int totalClientes;
 
-// Declaración de funciones
+//Declaración de funciones
 void MostrarHabitacionesDisponibles();
 void RegistrarHuesped();
 void MostrarBienvenida();
 void Menuinicial();
+void ListarClientes();
 
 #endif
 
