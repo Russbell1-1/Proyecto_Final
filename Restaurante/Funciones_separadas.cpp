@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+const int TAM = 10;
 int mesasdisponibles=16;
 
 char mesa[4][4]={
@@ -19,7 +20,8 @@ void reservarmesa(){
 					mesa[i][j]='R';
 					mesasdisponibles--;
 					cout<<"Mesa "<<i<<","<<j<<"reservada"<<endl;
-				}return;
+					return;
+				}
 			}
 		}
 	}else{
@@ -34,8 +36,22 @@ struct entradas{
 	int stock;
 };
 
+entradas lista_entradas[TAM]={
+        {'A', "Ensalada", 10.00, 20},
+        {'B', "Sopa", 10.00, 20},
+        {'C', "Causa", 12.00, 20},
+        {'D', "Ceviche", 15.00, 20},
+        {'E', "Tamal", 5.00, 20}
+    };
+
 void ver_entradas(){
-	
+	cout<<"Listado de entradas disponibles:"<<endl;
+    for(int i=0;i<TAM;++i){
+        cout<<"ID: "<<lista_entradas[i].id;
+        cout<<", Nombre: "<<lista_entradas[i].nombre;
+        cout<<", Precio: "<<lista_entradas[i].precio;
+        cout<<", Stock: "<<lista_entradas[i].stock<<endl;
+    }
 }
 
 struct platos{
@@ -43,10 +59,24 @@ struct platos{
 	string nombre;
 	float precio;
 	int stock;
-}
+};
+
+platos lista_platos[TAM]={
+        {'A', "Parillada", 20.00, 40},
+        {'B', "Chaufa", 16.00, 40},
+        {'C', "Lomo saltado", 18.00, 40},
+        {'D', "Aji de gallina", 16.00, 40},
+        {'E', "Spaggeti", 18.00, 40}
+    };
 
 void ver_platos(){
-	
+	cout<<"Listado de platos disponibles:"<<endl;
+    for(int i=0;i<TAM;++i){
+        cout<<"ID: "<<lista_platos[i].id;
+        cout<<", Nombre: "<<lista_platos[i].nombre;
+        cout<<", Precio: "<<lista_platos[i].precio;
+        cout<<", Stock: "<<lista_platos[i].stock<<endl;
+    }	
 }
 
 struct bebidas{
@@ -56,8 +86,22 @@ struct bebidas{
 	int stock;
 };
 
+bebidas lista_bebidas[TAM]={
+        {'A', "Gaseosa 2L", 10.00, 40},
+        {'B', "Jarra de jugo 1L", 12.00, 40},
+        {'C', "Tasa de infusión", 6.00, 40},
+        {'D', "Botella de vino", 16.00, 40},
+        {'E', "Tasa de cafe", 8.00, 40}
+    };
+
 void ver_bebidas(){
-	
+	cout<<"Listado de bebidas disponibles:"<<endl;
+    for(int i=0;i<TAM;++i){
+        cout<<"ID: "<<lista_bebidas[i].id;
+        cout<<", Nombre: "<<lista_bebidas[i].nombre;
+        cout<<", Precio: "<<lista_bebidas[i].precio;
+        cout<<", Stock: "<<lista_bebidas[i].stock<<endl;
+    }	
 }
 
 struct postres{
@@ -67,8 +111,23 @@ struct postres{
 	int stock;
 };
 
+postres lista_postres[TAM]={
+        {'A', "Tajada de torta", 7.00, 40},
+        {'B', "Arroz con leche", 5.00, 40},
+        {'C', "Mazamorra morada", 5.00, 40},
+        {'D', "Brownie", 4.00, 40},
+        {'E', "Helado", 8.00, 40}
+    };
+
+
 void ver_postres(){
-	
+	cout<<"Listado de postres disponibles:"<<endl;
+    for(int i=0;i<TAM;++i){
+        cout<<"ID: "<<lista_postres[i].id;
+        cout<<", Nombre: "<<lista_postres[i].nombre;
+        cout<<", Precio: "<<lista_postres[i].precio;
+        cout<<", Stock: "<<lista_postres[i].stock<<endl;
+    }	
 }
 
 
@@ -112,6 +171,9 @@ void ver_carta(){
 
 
 int main(){
+	
+
+	
 	char menu_opcion;
 	//Declaración de variable de menú
 	char menu;
