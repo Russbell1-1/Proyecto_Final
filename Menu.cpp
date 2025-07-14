@@ -12,15 +12,15 @@ void Menuinicial(){
         
         // Se muestran las opciones del sistema
         cout<<"===== SISTEMA DE GESTION HOTELERA =====\n";
-        cout<<"1. Reservar habitacion\n";  // Registrar un nuevo huésped
-        cout<<"2. Listar habitaciones\n";  // Ver huéspedes registrados
-        cout<<"3. Buscar habitacion\n";    // Buscar habitación por nombre y apellido
-        cout<<"4. Actualizar datos de reserva\n";  // Cambiar datos de un cliente
-        cout<<"5. Calcular monto total\n";      // Calcular costo de la estadía
-        cout<<"6. Listar huespedes ordenados\n";   // Mostrar huéspedes ordenados alfabéticamente
-        cout<<"7. Analisis de datos\n";     // Mostrar estadísticas del sistema
-        cout<<"8. Acceder al Restaurante\n";  // Ir al módulo de restaurante
-        cout<<"9.Salir";    // Finalizar el programa
+        cout<<"1. Reservar habitacion         \n";  // Registrar un nuevo huésped
+        cout<<"2. Listar habitaciones         \n";  // Ver huéspedes registrados
+        cout<<"3. Buscar habitacion           \n";  // Buscar habitación por nombre y apellido
+        cout<<"4. Actualizar datos de reserva \n";  // Cambiar datos de un cliente
+        cout<<"5. Calcular monto total        \n";  // Calcular costo de la estadía
+        cout<<"6. Listar huespedes ordenados  \n";  // Mostrar huéspedes ordenados alfabéticamente
+        cout<<"7. Analisis de datos           \n";  // Mostrar estadísticas del sistema
+        cout<<"8. Acceder al Restaurante      \n";  // Ir al módulo de restaurante
+        cout<<"9. Salir";                           // Finalizar el programa
         cout<<"\nSeleccione una opcion: ";
         cin>>op;
 
