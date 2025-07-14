@@ -134,42 +134,43 @@ void ver_postres() {
     }
 }
 void ver_carta(){
-	int opcion;
+		char opcion;
 	do{
         cout << "\n=== CARTA DEL RESTAURANTE ===\n";
-		cout<<"1. Entradas"<<endl;
-		cout<<"2. Platos"<<endl;
-		cout<<"3. Bedidas"<<endl;
-		cout<<"4. Postres"<<endl;
-		cout<<"5. Salir"<<endl;
+		cout<<"A. Entradas"<<endl;
+		cout<<"B. Platos"<<endl;
+		cout<<"C. Bedidas"<<endl;
+		cout<<"D. Postres"<<endl;
+		cout<<"E. Salir"<<endl;
+		cout<<"Seleccione una opcion : " ;
 		cin>>opcion;
 		switch(opcion){
-		case 1:
+		case 'A':
 			//  Entradas
 			ver_entradas();
 			break;
-		case 2:
+		case 'B':
 			//  Platos
 			ver_platos();
 			break;
-		case 3:
+		case 'C':
 			//  Bebidas
 			ver_bebidas();
 			break;
-		case 4:
+		case 'D':
 			//  Postres
 			ver_postres();
 			break;
-		case 5:
+		case 'E':
 			//  Salir
-			cout<<" Programa finalizado "<<endl;
+			cout<<"Saliendo de la carta..."<<endl;
 			break;	
 		default:
 			//  Repetir hasta elegir una opcion
-			cout<<"ERROR: Eliga una categoria de la carta (1, 2, 3, 4, 5)"<<endl<<endl;
+			cout<<"ERROR: Eliga una categoria de la carta (A, B, C, D, E)"<<endl<<endl;
 			break;
 	}
-	}while(opcion!=5);
+	}while(opcion!='E');
 }
 
 
@@ -306,48 +307,48 @@ void verCuentasHabitaciones() {
     }
 }
 void menu_trabajador(){
-    int opcion_trabajador;
+    char opcion_trabajador;
     do {
         cout << "====== MENU PRINCIPAL - TRABAJADOR ======\n" ;
-        cout << "1. Mostrar mapa de mesas\n" ;
-        cout << "2. Agregar reserva\n" ;
-        cout << "3. Eliminar reserva\n" ;
-        cout << "4. Recibir pedido a cuarto\n" ;
-        cout << "5. Ver historial de pedidos\n" ;
-        cout << "6. Ver montos por habitacion\n" ;
-        cout << "7. Salir\n";
+        cout << "A. Mostrar mapa de mesas\n" ;
+        cout << "B. Agregar reserva\n" ;
+        cout << "C. Eliminar reserva\n" ;
+        cout << "D. Recibir pedido a cuarto\n" ;
+        cout << "E. Ver historial de pedidos\n" ;
+        cout << "F. Ver montos por habitacion\n" ;
+        cout << "G. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion_trabajador;
         switch (opcion_trabajador) {
-            case 1: 
+            case 'A': 
                 mostrarMapaMesas();
                 break;
-            case 2: 
+            case 'B': 
                 agregarReservaTrabajador();
                 break;
-            case 3: 
+            case 'C': 
                 eliminarReservaTrabajador(); 
                 break;
-            case 4: 
+            case 'D': 
                 pedirACuarto();
                 break;
-            case 5: 
+            case 'E': 
                 verHistorialPedidos();
                 break;
-            case 6: 
+            case 'F': 
                 verCuentasHabitaciones();
                 break;
-            case 7: 
+            case 'G': 
                 cout << endl;
                 cout << "Saliendo del sistema del trabajador...\n";
                 break;
             default: 
                 cout << endl;
-                cout<< "ERROR: Eliga una categoria de la carta (1, 2, 3, 4, 5, 6, 7)" <<endl<<endl;
+                cout<< "ERROR: OPCION INVALIDA (A, B, C, D, E, F, G)" <<endl<<endl;
                 cout << endl;
                 break;
         }
-    } while (opcion_trabajador != 7);
+    } while (opcion_trabajador != 'G');
 }
 //ADMINISTRADOR
 int seleccionar_tipo_comida(){
@@ -358,7 +359,7 @@ int seleccionar_tipo_comida(){
     cout << "3. Bebidas" << endl;
     cout << "4. Postres" << endl;
     cout << "5. Salir" << endl;
-    cout << "Opcion: ";
+    cout << "Seleccione una opcion :";
     cin >> opcion;
 
     if (opcion >= 1 && opcion <= 4) {
@@ -630,14 +631,14 @@ void agregar_stock() {
 void menu_administrador(){
 	char menu_admin;
 	do{
-        cout << "\n=== MENU ADMINISTRADOR ===\n";
-		cout<<"Seleccione la opcion"<<endl;
+        cout << "=== MENU ADMINISTRADOR ===\n";
 		cout<<"A. Ver carta"<<endl;
 		cout<<"B. Agregar comida"<<endl;
 		cout<<"C. Modificar comida"<<endl;
 		cout<<"D. Eliminar comida"<<endl;
 		cout<<"E. Agregar stock"<<endl;
 		cout<<"F. Volver"<<endl;
+		cout<<"Seleccione una opcion : ";
 		cin>>menu_admin;
 	
 	switch (menu_admin){
@@ -663,7 +664,8 @@ void menu_administrador(){
 				break;
 			case 'F':
 				//Salir del programa
-				cout<<"Programa finalizado"<<endl;
+				cout << endl;
+                cout << "Saliendo del sistema del administrador...\n";
 				break;	
 			default:
 				//Repetir menu hasta elegir una opcion
@@ -676,7 +678,7 @@ void menu_administrador(){
 void menu_cliente(){
 	char menu_opcion;
 	do{
-		cout << "\n=== MENU CLIENTE ===\n";
+		cout << "=== MENU CLIENTE ===\n";
         cout << "A. Ver carta\n";
         cout << "B. Reservar mesa\n";
         cout << "C. Volver\n";
@@ -694,8 +696,9 @@ void menu_cliente(){
 				break;
 			case 'C':
 				//Salir del programa
-				cout<<"Programa finalizado"<<endl;
-				break;	
+				cout << endl;
+				cout<<"Saliendo del sistema de cliente...." << endl;
+				break;
 			default:
 				//Repetir menu hasta elegir una opcion
 				cout << " ERROR: Eliga una opcion del menu (A, B, C)" <<endl <<endl;
@@ -708,12 +711,12 @@ void sistemaRestaurante(){
     inicializadorDatos();
 	char menu_usuario_rest;
     do { 
-	    cout<<endl<<"\n===Ingrese el usuario===\n"<<endl;
+	    cout<<endl<<"=== INGRESE EL USUARIO ==="<<endl;
 	    cout<<"A. Cliente"<<endl;
 	    cout<<"B. Trabajador"<<endl;
 	    cout<<"C. Administrador"<<endl;
         cout<<"D. Salir " << endl;
-        cout << "Seleccione una opcion : " ;
+        cout <<"Seleccione una opcion : " ;
 	    cin>>menu_usuario_rest;
 	    cout << endl;
 	switch(menu_usuario_rest){
@@ -735,8 +738,8 @@ void sistemaRestaurante(){
 	}
     } while (menu_usuario_rest !='D');
 }
-/*
+
 int main(){
 	sistemaRestaurante();
 	return 0;
-	}*/
+	}
