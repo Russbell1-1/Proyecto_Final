@@ -1,9 +1,14 @@
 #include <iostream>
-#include "Restaurante.h"
+#include "restaurante.h"
 using namespace std;
 
 // CONSTANTES
-int MESASDISPONIBLES = 16; //Cantidad de mesa
+ 
+int MESASDISPONIBLES = 16; //Cantidad de mesas
+
+
+// ESTRUCTURAS 
+
 
 // VARIABLES
 Comida lista_entradas[TAM];
@@ -409,11 +414,14 @@ void modificar_comida(){
        case 1:
             for(int i=0; i<cant_entradas; i++){
                 if(lista_entradas[i].id == id){
+                	cout<<"Nombre actual: "<<lista_entradas[i].nombre<<endl;
                     cin.ignore();
                     cout << "Nuevo nombre: ";
                     getline(cin, lista_entradas[i].nombre);
+                    cout<<"Precio actual: "<<lista_entradas[i].precio<<endl;
                     cout << "Nuevo precio: ";
                     cin >> lista_entradas[i].precio;
+                    cout<<"Stock actual: "<<lista_entradas[i].stock<<endl;
                     cout << "Nuevo stock: ";
                     cin >> lista_entradas[i].stock;
                     cout << "Comida modificada.\n";
@@ -424,11 +432,14 @@ void modificar_comida(){
         case 2:
             for(int i=0; i<cant_platos; i++){
                 if(lista_platos[i].id == id){
+                	cout<<"Nombre actual: "<<lista_platos[i].nombre<<endl;
                     cin.ignore();
                     cout << "Nuevo nombre: ";
                     getline(cin, lista_platos[i].nombre);
+                    cout<<"Precio actual: "<<lista_platos[i].precio<<endl;
                     cout << "Nuevo precio: ";
                     cin >> lista_platos[i].precio;
+                    cout<<"Precio actual: "<<lista_platos[i].stock<<endl;
                     cout << "Nuevo stock: ";
                     cin >> lista_platos[i].stock;
                     cout << "Comida modificada.\n";
@@ -439,11 +450,14 @@ void modificar_comida(){
         case 3:
             for(int i=0; i<cant_bebidas; i++){
                 if(lista_bebidas[i].id == id){
+                	cout<<"Precio actual: "<<lista_bebidas[i].stock<<endl;
                     cin.ignore();
                     cout << "Nuevo nombre: ";
                     getline(cin, lista_bebidas[i].nombre);
+                    cout<<"Precio actual: "<<lista_bebidas[i].precio<<endl;
                     cout << "Nuevo precio: ";
                     cin >> lista_bebidas[i].precio;
+                    cout<<"Precio actual: "<<lista_bebidas[i].stock<<endl;
                     cout << "Nuevo stock: ";
                     cin >> lista_bebidas[i].stock;
                     cout << "Comida modificada.\n";
@@ -454,11 +468,14 @@ void modificar_comida(){
         case 4:
             for(int i=0; i<cant_postres; i++){
                 if(lista_postres[i].id == id){
+                	cout<<"Precio actual: "<<lista_postres[i].stock<<endl;
                     cin.ignore();
                     cout << "Nuevo nombre: ";
                     getline(cin, lista_postres[i].nombre);
+                    cout<<"Precio actual: "<<lista_postres[i].precio<<endl;
                     cout << "Nuevo precio: ";
                     cin >> lista_postres[i].precio;
+                    cout<<"Precio actual: "<<lista_postres[i].stock<<endl;
                     cout << "Nuevo stock: ";
                     cin >> lista_postres[i].stock;
                     cout << "Comida modificada.\n";
@@ -587,103 +604,113 @@ void agregar_stock() {
 //TRABAJADOR
 
 void menu_administrador(){
-	int menu_admin;
+	char menu_admin;
 	do{
         cout << "\n=== MENU ADMINISTRADOR ===\n";
 		cout<<"Seleccione la opcion"<<endl;
-		cout<<"1. Agregar comida"<<endl;
-		cout<<"2. Modificar comida"<<endl;
-		cout<<"3. Eliminar comida"<<endl;
-		cout<<"4. Agregar stock"<<endl;
-		cout<<"5. Volver"<<endl;
+		cout<<"A. Ver carta"<<endl;
+		cout<<"B. Agregar comida"<<endl;
+		cout<<"C. Modificar comida"<<endl;
+		cout<<"D. Eliminar comida"<<endl;
+		cout<<"E. Agregar stock"<<endl;
+		cout<<"F. Volver"<<endl;
 		cin>>menu_admin;
 	
 	switch (menu_admin){
-			case 1:
+			case 'A':
+				//Ver carta
+				ver_carta();
+				break;
+			case 'B':
 				//Agregar comida
 				agregar_comida();
 				break;
-			case 2:
+			case 'C':
 				//Modificar comida
 				modificar_comida();
 				break;
-			case 3:
+			case 'D':
 				//Eliminar comida
 				eliminar_comida();
 				break;
-			case 4:
+			case 'E':
 				//Agregar stock
 				agregar_stock();
 				break;
-			case 5:
+			case 'F':
 				//Salir del programa
 				cout<<"Programa finalizado"<<endl;
 				break;	
 			default:
 				//Repetir menu hasta elegir una opcion
-				cout<<"ERROR: Eliga una opcion del menu (1, 2, 3, 4, 5)"<<endl<<endl;
+				cout<<"ERROR: Eliga una opcion del menu (A, B, C, D, E, F)"<<endl<<endl;
 				break;
 	}
-	}while(menu_admin!=5);
+	}while(menu_admin!='F');
 }
 
 void menu_cliente(){
-	int menu_opcion;
+	char menu_opcion;
 	do{
 		cout << "\n=== MENU CLIENTE ===\n";
-        cout << "1. Ver carta\n";
-        cout << "2. Reservar mesa\n";
-        cout << "3. Volver\n";
-        cout << "Seleccione una opción: ";
+        cout << "A. Ver carta\n";
+        cout << "B. Reservar mesa\n";
+        cout << "C. Volver\n";
+        cout << "Seleccione una opcion: ";
         cin >> menu_opcion;
 	
 		switch (menu_opcion){
-			case 1:
+			case 'A':
 				//Agregar un contacto
 				ver_carta();
 				break;
-			case 2:
+			case 'B':
 				//Eliminar un contacto
 				agregarReservaTrabajador();
 				break;
-			case 3:
+			case 'C':
 				//Salir del programa
 				cout<<"Programa finalizado"<<endl;
 				break;	
 			default:
 				//Repetir menu hasta elegir una opcion
-				cout << " ERROR: Eliga una opcion del menu (1, 2, 3)" <<endl <<endl;
+				cout << " ERROR: Eliga una opcion del menu (A, B, C)" <<endl <<endl;
 				break;
 	}
-	}while(menu_opcion!= 3);
+	}while(menu_opcion!= 'C');
 }
 
 void sistemaRestaurante(){
     inicializadorDatos();
-	int menu_usuario_rest;
+	char menu_usuario_rest;
     do { 
-	    cout<<"Ingrese el usuario: "<<endl;
-	    cout<<"1. Cliente"<<endl;
-	    cout<<"2. Trabajador"<<endl;
-	    cout<<"3. Administrador"<<endl;
-        cout<<"4. Salir " << endl;
+	    cout<<endl<<"\n===Ingrese el usuario===\n"<<endl;
+	    cout<<"A. Cliente"<<endl;
+	    cout<<"B. Trabajador"<<endl;
+	    cout<<"C. Administrador"<<endl;
+        cout<<"D. Salir " << endl;
 	    cin>>menu_usuario_rest;
 	switch(menu_usuario_rest){
-		case 1:
+		case 'A':
 			menu_cliente();
 			break;
-		case 2:
+		case 'B':
 			menu_trabajador();
 			break;
-		case 3:
+		case 'C':
 			menu_administrador();
 			break;
-        case 4:
+        case 'D':
             cout << "Finalizando el programa" << endl;
             break;
 		default:
 			cout<<"ERROR: Ingrese una opcion valida"<<endl;
             break;
 	}
-    } while (menu_usuario_rest !=4);
+    } while (menu_usuario_rest !='D');
 }
+
+//int main(){
+//	sistemaRestaurante();
+//	return 0;
+//}
