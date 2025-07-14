@@ -306,6 +306,11 @@ void verCuentasHabitaciones() {
         cout << endl;
     }
 }
+void limpiacd(){
+	system("pause");
+    system("cls");  
+}
+
 void menu_trabajador(){
     char opcion_trabajador;
     do {
@@ -322,30 +327,38 @@ void menu_trabajador(){
         switch (opcion_trabajador) {
             case 'A': 
                 mostrarMapaMesas();
+                limpiacd();               
                 break;
             case 'B': 
                 agregarReservaTrabajador();
+                limpiacd();  
                 break;
             case 'C': 
                 eliminarReservaTrabajador(); 
+                limpiacd(); 
                 break;
             case 'D': 
                 pedirACuarto();
+                limpiacd(); 
                 break;
             case 'E': 
                 verHistorialPedidos();
+                limpiacd(); 
                 break;
             case 'F': 
                 verCuentasHabitaciones();
+                limpiacd(); 
                 break;
             case 'G': 
                 cout << endl;
                 cout << "Saliendo del sistema del trabajador...\n";
+                limpiacd(); 
                 break;
             default: 
                 cout << endl;
                 cout<< "ERROR: OPCION INVALIDA (A, B, C, D, E, F, G)" <<endl<<endl;
                 cout << endl;
+                limpiacd(); 
                 break;
         }
     } while (opcion_trabajador != 'G');
@@ -645,31 +658,38 @@ void menu_administrador(){
 			case 'A':
 				//Ver carta
 				ver_carta();
+				limpiacd(); 
 				break;
 			case 'B':
 				//Agregar comida
 				agregar_comida();
+				limpiacd(); 
 				break;
 			case 'C':
 				//Modificar comida
 				modificar_comida();
+				limpiacd(); 
 				break;
-			case 'D':
+			case 'D':	
 				//Eliminar comida
 				eliminar_comida();
+				limpiacd(); 
 				break;
 			case 'E':
 				//Agregar stock
 				agregar_stock();
+				limpiacd(); 
 				break;
 			case 'F':
 				//Salir del programa
 				cout << endl;
                 cout << "Saliendo del sistema del administrador...\n";
+                limpiacd(); 
 				break;	
 			default:
 				//Repetir menu hasta elegir una opcion
 				cout<<"ERROR: Eliga una opcion del menu (A, B, C, D, E, F)"<<endl<<endl;
+				limpiacd(); 
 				break;
 	}
 	}while(menu_admin!='F');
@@ -689,19 +709,23 @@ void menu_cliente(){
 			case 'A':
 				//Agregar un contacto
 				ver_carta();
+				limpiacd(); 
 				break;
 			case 'B':
 				//Eliminar un contacto
 				agregarReservaTrabajador();
+				limpiacd(); 
 				break;
 			case 'C':
 				//Salir del programa
 				cout << endl;
 				cout<<"Saliendo del sistema de cliente...." << endl;
+				limpiacd(); 
 				break;
 			default:
 				//Repetir menu hasta elegir una opcion
 				cout << " ERROR: Eliga una opcion del menu (A, B, C)" <<endl <<endl;
+				limpiacd(); 
 				break;
 	}
 	}while(menu_opcion!= 'C');
@@ -711,7 +735,7 @@ void sistemaRestaurante(){
     inicializadorDatos();
 	char menu_usuario_rest;
     do { 
-	    cout<<endl<<"=== INGRESE EL USUARIO ==="<<endl;
+	    cout<<"=== INGRESE EL USUARIO ==="<<endl;
 	    cout<<"A. Cliente"<<endl;
 	    cout<<"B. Trabajador"<<endl;
 	    cout<<"C. Administrador"<<endl;
@@ -721,16 +745,23 @@ void sistemaRestaurante(){
 	    cout << endl;
 	switch(menu_usuario_rest){
 		case 'A':
+			system("cls");
 			menu_cliente();
+			system("cls");
 			break;
 		case 'B':
+			system("cls");
 			menu_trabajador();
+			system("cls");
 			break;
 		case 'C':
+			system("cls");
 			menu_administrador();
+			system("cls");
 			break;
         case 'D':
             cout << "Finalizando el programa" << endl;
+            
             break;
 		default:
 			cout<<"ERROR: Ingrese una opcion valida"<<endl;
