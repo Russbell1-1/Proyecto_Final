@@ -3,12 +3,7 @@
 using namespace std;
 
 // CONSTANTES
-int MESASDISPONIBLES = 16; //Cantidad de mesas
-
-
-// ESTRUCTURAS 
-
-
+int MESASDISPONIBLES = 16; //Cantidad de mesa
 
 // VARIABLES
 Comida lista_entradas[TAM];
