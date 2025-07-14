@@ -110,8 +110,10 @@ void ver_postres() {
         mostrarItem(lista_postres[i]);
     }
 }
+
+//Funcion mostrar carta, para cliente y administrador
 void ver_carta(){
-	int opcion;
+	char opcion;
 	do{
         cout << "\n=== CARTA DEL RESTAURANTE ===\n";
 		cout<<"1. Entradas"<<endl;
@@ -121,23 +123,23 @@ void ver_carta(){
 		cout<<"5. Salir"<<endl;
 		cin>>opcion;
 		switch(opcion){
-		case 1:
+		case '1':
 			//  Entradas
 			ver_entradas();
 			break;
-		case 2:
+		case '2':
 			//  Platos
 			ver_platos();
 			break;
-		case 3:
+		case '3':
 			//  Bebidas
 			ver_bebidas();
 			break;
-		case 4:
+		case '4':
 			//  Postres
 			ver_postres();
 			break;
-		case 5:
+		case '5':
 			//  Salir
 			cout<<" Programa finalizado "<<endl;
 			break;	
@@ -146,7 +148,7 @@ void ver_carta(){
 			cout<<"ERROR: Eliga una categoria de la carta (1, 2, 3, 4, 5)"<<endl<<endl;
 			break;
 	}
-	}while(opcion!=5);
+	}while(opcion!='5');
 }
 
 
@@ -280,8 +282,10 @@ void verCuentasHabitaciones() {
         cout << endl;
     }
 }
+
+//Menu de opciones del trabajador
 void menu_trabajador(){
-    int opcion_trabajador;
+    char opcion_trabajador;
     do {
         cout << "====== MENU PRINCIPAL - TRABAJADOR ======\n" ;
         cout << "1. Mostrar mapa de mesas\n" ;
@@ -294,25 +298,25 @@ void menu_trabajador(){
         cout << "Seleccione una opcion: ";
         cin >> opcion_trabajador;
         switch (opcion_trabajador) {
-            case 1: 
+            case '1': 
                 mostrarMapaMesas();
                 break;
-            case 2: 
+            case '2': 
                 agregarReservaTrabajador();
                 break;
-            case 3: 
+            case '3': 
                 eliminarReservaTrabajador(); 
                 break;
-            case 4: 
+            case '4': 
                 pedirACuarto();
                 break;
-            case 5: 
+            case '5': 
                 verHistorialPedidos();
                 break;
-            case 6: 
+            case '6': 
                 verCuentasHabitaciones();
                 break;
-            case 7: 
+            case '7': 
                 cout << endl;
                 cout << "Saliendo del sistema del trabajador...\n";
                 break;
@@ -322,7 +326,7 @@ void menu_trabajador(){
                 cout << endl;
                 break;
         }
-    } while (opcion_trabajador != 7);
+    } while (opcion_trabajador != '7');
 }
 //ADMINISTRADOR
 int seleccionar_tipo_comida(){
@@ -346,6 +350,7 @@ int seleccionar_tipo_comida(){
     }
 }
 
+//Funcion agregar comida
 void agregar_comida(){
     cout << "\n=== AGREGAR ITEM AL MENU ===\n";
 
@@ -400,6 +405,7 @@ void agregar_comida(){
     cout<<" Comida agregada exitosamente "<<endl;
 }
 
+//Modificar comida funcion administrador
 void modificar_comida(){
     int tipo_comida = seleccionar_tipo_comida();
 	if (tipo_comida == 0 || tipo_comida == 5){
@@ -487,6 +493,8 @@ void modificar_comida(){
     cout<< "ID no encontrado"<<endl;
 }
 
+//Funcion eliminar comida de administrador
+
 void eliminar_comida(){
 	int tipo_comida = seleccionar_tipo_comida();
 	if (tipo_comida == 0 || tipo_comida == 5){
@@ -541,6 +549,8 @@ void eliminar_comida(){
     }
     cout<<"ID no encontrado"<<endl;
 }
+
+//Funcion agregar stock o ingredientes disponibles para comida de administrador
 
 void agregar_stock() {
     int tipo_comida = seleccionar_tipo_comida();
@@ -601,6 +611,7 @@ void agregar_stock() {
 
     cout << "ID no encontrado"<<endl;
 }
+
 //TRABAJADOR
 
 void menu_administrador(){
@@ -649,6 +660,8 @@ void menu_administrador(){
 	}while(menu_admin!='F');
 }
 
+//Funcion principal del menu cliente
+
 void menu_cliente(){
 	char menu_opcion;
 	do{
@@ -679,6 +692,8 @@ void menu_cliente(){
 	}
 	}while(menu_opcion!= 'C');
 }
+
+//Menu principal del restaurante para seleccionar usuario
 
 void sistemaRestaurante(){
     inicializadorDatos();
