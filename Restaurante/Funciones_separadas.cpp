@@ -1,5 +1,4 @@
 #include <iostream>
-#include "restaurante.h"
 using namespace std;
 
 // CONSTANTES
@@ -210,7 +209,7 @@ void agregarReservaTrabajador() { // Se agregara reservas atraves de saber la co
         MESASDISPONIBLES--;
         cout << "Reserva agregada correctamente.\n";
     } else {
-        cout << "La mesa ya está ocupada o reservada.\n";
+        cout << "La mesa ya esta ocupada o reservada.\n";
     }
     cout << endl;
 }
@@ -279,6 +278,7 @@ void verHistorialPedidos() {
     cout << endl;
     if (cantPedidos == 0) {
         cout << "Sin registros.\n"; 
+        cout << endl;
         return;
     }
 
@@ -295,6 +295,7 @@ void verCuentasHabitaciones() {
     cout << endl;
     if (totalHabitaciones == 0) {
         cout << "No hay habitaciones registradas.\n";
+        cout << endl;
         return;
     }
 
@@ -625,7 +626,6 @@ void agregar_stock() {
 
     cout << "ID no encontrado"<<endl;
 }
-//TRABAJADOR
 
 void menu_administrador(){
 	char menu_admin;
@@ -713,7 +713,9 @@ void sistemaRestaurante(){
 	    cout<<"B. Trabajador"<<endl;
 	    cout<<"C. Administrador"<<endl;
         cout<<"D. Salir " << endl;
+        cout << "Seleccione una opcion : " ;
 	    cin>>menu_usuario_rest;
+	    cout << endl;
 	switch(menu_usuario_rest){
 		case 'A':
 			menu_cliente();
@@ -733,8 +735,8 @@ void sistemaRestaurante(){
 	}
     } while (menu_usuario_rest !='D');
 }
-
-//int main(){
-//	sistemaRestaurante();
-//	return 0;
-//}
+/*
+int main(){
+	sistemaRestaurante();
+	return 0;
+	}*/
