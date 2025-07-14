@@ -17,7 +17,7 @@ void Menuinicial(){
         cout<<"6. Listar huespedes ordenados\n";
         cout<<"7. Analisis de datos\n";
         cout<<"8. Acceder al Restaurante\n";
-        cout<<"9.Salir";
+        cout<<"\n9.Salir";
         cout<<"Seleccione una opcion: ";
         cin>>op;
 
@@ -29,7 +29,7 @@ void Menuinicial(){
             case 5: CalcularMonto(); break;
             case 6: ListarHuespedesOrdenados(); break;
             case 7: AnalisisDeDatos(); break;
-             
+            case 8: sistemaRestaurante(); break; 
         }
     }while(op!=9);
 }
