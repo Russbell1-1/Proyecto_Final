@@ -330,7 +330,7 @@ void menu_trabajador(){
 }
 //ADMINISTRADOR
 int seleccionar_tipo_comida(){
-    int opcion;
+    char opcion;
     cout << "Seleccione categoria: " << endl;
     cout << "1. Entradas" << endl;
     cout << "2. Platos" << endl;
@@ -340,13 +340,13 @@ int seleccionar_tipo_comida(){
     cout << "Opcion: ";
     cin >> opcion;
 
-    if (opcion >= 1 && opcion <= 4) {
+    if (opcion == '1' || opcion == '2' || opcion == '3' || opcion == '4') {
         return opcion;
-    } else if (opcion == 5) {
-        return 5; // Salida válida
+    } else if (opcion == '5') {
+        return '5'; // Salida válida
     } else {
         cout << "ERROR: Opción inválida." << endl;
-        return 0;
+        return '0';
     }
 }
 
@@ -354,8 +354,8 @@ int seleccionar_tipo_comida(){
 void agregar_comida(){
     cout << "\n=== AGREGAR ITEM AL MENU ===\n";
 
-	int tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == 0 || tipo_comida == 5){
+	char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == '0' || tipo_comida == '5'){
         return; 
     } 
 	
@@ -372,28 +372,28 @@ void agregar_comida(){
     cin >> nuevoitem.stock;
     
     switch(tipo_comida){
-        case 1:
+        case '1':
             if(cant_entradas>=TAM){
                 cout<<"Límite de entradas alcanzado"<<endl;
                 return;
             }
             lista_entradas[cant_entradas++] = nuevoitem;
             break;
-        case 2:
+        case '2':
             if(cant_platos>=TAM){
                 cout<<"Límite de platos alcanzado"<<endl;
                 return;
             }
             lista_platos[cant_platos++] = nuevoitem;
             break;
-        case 3:
+        case '3':
             if(cant_bebidas>=TAM){
                 cout<<"Límite de bebidas alcanzado"<<endl;
                 return;
             }
             lista_bebidas[cant_bebidas++] = nuevoitem;
             break;
-        case 4:
+        case '4':
             if(cant_postres>=TAM){
                 cout<<"Límite de postres alcanzado"<<endl;
                 return;
@@ -407,8 +407,8 @@ void agregar_comida(){
 
 //Modificar comida funcion administrador
 void modificar_comida(){
-    int tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == 0 || tipo_comida == 5){
+    char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == '0' || tipo_comida == '5'){
         return; 
     } 
     
@@ -417,7 +417,7 @@ void modificar_comida(){
     cin>>id;
     
     switch(tipo_comida){
-       case 1:
+       case '1':
             for(int i=0; i<cant_entradas; i++){
                 if(lista_entradas[i].id == id){
                 	cout<<"Nombre actual: "<<lista_entradas[i].nombre<<endl;
@@ -435,7 +435,7 @@ void modificar_comida(){
                 }
             }
             break;
-        case 2:
+        case '2':
             for(int i=0; i<cant_platos; i++){
                 if(lista_platos[i].id == id){
                 	cout<<"Nombre actual: "<<lista_platos[i].nombre<<endl;
@@ -453,7 +453,7 @@ void modificar_comida(){
                 }
             }
             break;
-        case 3:
+        case '3':
             for(int i=0; i<cant_bebidas; i++){
                 if(lista_bebidas[i].id == id){
                 	cout<<"Precio actual: "<<lista_bebidas[i].stock<<endl;
@@ -471,7 +471,7 @@ void modificar_comida(){
                 }
             }
             break;
-        case 4:
+        case '4':
             for(int i=0; i<cant_postres; i++){
                 if(lista_postres[i].id == id){
                 	cout<<"Precio actual: "<<lista_postres[i].stock<<endl;
@@ -496,8 +496,8 @@ void modificar_comida(){
 //Funcion eliminar comida de administrador
 
 void eliminar_comida(){
-	int tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == 0 || tipo_comida == 5){
+	char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == '0' || tipo_comida == '5'){
         return; 
     } 
     
@@ -506,7 +506,7 @@ void eliminar_comida(){
     cin>>id;
     
     switch(tipo_comida){
-        case 1:
+        case '1':
             for (int i = 0; i < cant_entradas; i++) {
                 if (lista_entradas[i].id == id) {
                     lista_entradas[i] = lista_entradas[cant_entradas - 1];
@@ -516,7 +516,7 @@ void eliminar_comida(){
                 }
             }
             break;
-        case 2:
+        case '2':
             for (int i = 0; i < cant_platos; i++) {
                 if (lista_platos[i].id == id) {
                     lista_platos[i] = lista_platos[cant_platos - 1];
@@ -526,7 +526,7 @@ void eliminar_comida(){
                 }
             }
             break;
-        case 3:
+        case '3':
             for (int i = 0; i < cant_bebidas; i++) {
                 if (lista_bebidas[i].id == id) {
                     lista_bebidas[i] = lista_bebidas[cant_bebidas - 1];
@@ -536,7 +536,7 @@ void eliminar_comida(){
                 }
             }
             break;
-        case 4:
+        case '4':
             for (int i = 0; i < cant_postres; i++) {
                 if (lista_postres[i].id == id) {
                     lista_postres[i] = lista_postres[cant_postres - 1];
@@ -553,8 +553,8 @@ void eliminar_comida(){
 //Funcion agregar stock o ingredientes disponibles para comida de administrador
 
 void agregar_stock() {
-    int tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == 0 || tipo_comida == 5){
+    char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == '0' || tipo_comida == '5'){
         return; 
     } 
     char id;
@@ -563,7 +563,7 @@ void agregar_stock() {
     cin >> id;
 
     switch(tipo_comida){
-        case 1:
+        case '1':
             for (int i = 0; i < cant_entradas; i++) {
                 if (lista_entradas[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -574,7 +574,7 @@ void agregar_stock() {
                 }
             }
             break;
-        case 2:
+        case '2':
             for (int i = 0; i < cant_platos; i++) {
                 if (lista_platos[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -585,7 +585,7 @@ void agregar_stock() {
                 }
             }
             break;
-        case 3:
+        case '3':
             for (int i = 0; i < cant_bebidas; i++) {
                 if (lista_bebidas[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -596,7 +596,7 @@ void agregar_stock() {
                 }
             }
             break;
-        case 4:
+        case '4':
             for (int i = 0; i < cant_postres; i++) {
                 if (lista_postres[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
