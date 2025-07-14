@@ -1,12 +1,19 @@
 #ifndef MENU_H
 #define MENU_H
 
-//Constantes 
+// ======================
+// Constantes del sistema
+// ======================
+
 const int FILAS=3;          // Número de pisos del hotel
 const int COLUMNAS=4;       // Número de habitaciones por piso
 const int MAX_CLIENTES=50;  // Número máximo de clientes que se pueden registrar
 
-//Estructura que se reutilizara
+
+// ===========================
+// Estructura de datos Cliente
+// ===========================
+
 struct Cliente{
 	char nombre[30];
 	char apellido[30];
@@ -15,12 +22,19 @@ struct Cliente{
 	int habitacion;
 };
 
-//Variables globales (declaradas externamente)
+
+// ==========================================
+// Variables globales compartidas por módulos
+// ==========================================
+
 extern Cliente clientes[MAX_CLIENTES];      // Arreglo de clientes registrados
 extern bool habitaciones[FILAS][COLUMNAS];  // Matriz que representa las habitaciones (ocupadas o libres)
 extern int totalClientes;                   // Contador del total de clientes actuales
 
-//Declaración de funciones
+// ==================================
+// Declaración de funciones del menú
+// ==================================
+
 void MostrarHabitacionesDisponibles();   // Muestra el estado actual de las habitaciones (libres/ocupadas)
 void RegistrarHuesped();                 // Registra un nuevo huésped en el sistema
 void MostrarBienvenida();                // Muestra mensaje de bienvenida (opcional)
