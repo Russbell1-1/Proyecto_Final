@@ -3,16 +3,20 @@
 #include "Menu.h"
 using namespace std;
 
-extern Cliente clientes[MAX_CLIENTES];
-extern int totalClientes;
-extern bool habitaciones[FILAS][COLUMNAS];
+// Accedemos a las variables globales del sistema
+extern Cliente clientes[MAX_CLIENTES];         // Arreglo que guarda los datos de los clientes
+extern int totalClientes;       // Cantidad actual de clientes registrados
+extern bool habitaciones[FILAS][COLUMNAS];     // Estado de ocupación de habitaciones
 
+// Función que muestra en pantalla la lista de todos los clientes registrados
 void ListarClientes(){
+	// Verifica si hay clientes registrados
 	if(totalClientes==0){
 		cout<<"No hay clientes registrados.\n";
 		return;
 		system("pause");
 	}
+	// Muestra el listado de clientes
 	cout<<"Lista de Clientes Registrados:\n";
 	for(int i=0;i<totalClientes;i++){
 		cout<<"Cliente "<<i+1<<":\n";
@@ -22,6 +26,7 @@ void ListarClientes(){
 		cout<<"Habitacion: Piso "<<clientes[i].piso<<", Nro "<<clientes[i].habitacion<<"\n";
 		cout<<"--------------------------\n";
 	}
+			// Pausa para que el usuario lea la información mostrada
 			system("pause");
 
 }
