@@ -163,7 +163,6 @@ void ver_carta(){
 			break;
 		case 'E':
 			//  Salir
-			cout<<"Saliendo de la carta..."<<endl;
 			break;	
 		default:
 			//  Repetir hasta elegir una opcion
@@ -324,6 +323,7 @@ void menu_trabajador(){
         cout << "G. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion_trabajador;
+        opcion_trabajador = toupper(opcion_trabajador);
         switch (opcion_trabajador) {
             case 'A': 
                 mostrarMapaMesas();
@@ -364,32 +364,33 @@ void menu_trabajador(){
     } while (opcion_trabajador != 'G');
 }
 //ADMINISTRADOR
-int seleccionar_tipo_comida(){
-    int opcion;
+char seleccionar_tipo_comida(){
+    char opcion;
     cout << "Seleccione categoria: " << endl;
-    cout << "1. Entradas" << endl;
-    cout << "2. Platos" << endl;
-    cout << "3. Bebidas" << endl;
-    cout << "4. Postres" << endl;
-    cout << "5. Salir" << endl;
-    cout << "Seleccione una opcion :";
+    cout << "A. Entradas" << endl;
+    cout << "B. Platos" << endl;
+    cout << "C. Bebidas" << endl;
+    cout << "D. Postres" << endl;
+    cout << "E. Salir" << endl;
+    cout << "Seleccione una opcion : ";
     cin >> opcion;
-
-    if (opcion >= 1 && opcion <= 4) {
-        return opcion;
-    } else if (opcion == 5) {
-        return 5; // Salida válida
-    } else {
-        cout << "ERROR: Opción inválida." << endl;
-        return 0;
+    opcion = toupper(opcion);
+    switch(opcion) {
+        case 'A':
+        case 'B':
+        case 'C':
+        case 'D':
+        case 'E':
+            return opcion;
+        default:
+            cout << "ERROR: OPCIÓN INVÁLIDA" << endl;
+            return seleccionar_tipo_comida(); // Vuelve a pedir opción
     }
 }
-
 void agregar_comida(){
     cout << "\n=== AGREGAR ITEM AL MENU ===\n";
-
-	int tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == 0 || tipo_comida == 5){
+	char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == 'E'){
         return; 
     } 
 	
@@ -406,28 +407,28 @@ void agregar_comida(){
     cin >> nuevoitem.stock;
     
     switch(tipo_comida){
-        case 1:
+        case 'A':
             if(cant_entradas>=TAM){
                 cout<<"Límite de entradas alcanzado"<<endl;
                 return;
             }
             lista_entradas[cant_entradas++] = nuevoitem;
             break;
-        case 2:
+        case 'B':
             if(cant_platos>=TAM){
                 cout<<"Límite de platos alcanzado"<<endl;
                 return;
             }
             lista_platos[cant_platos++] = nuevoitem;
             break;
-        case 3:
+        case 'C':
             if(cant_bebidas>=TAM){
                 cout<<"Límite de bebidas alcanzado"<<endl;
                 return;
             }
             lista_bebidas[cant_bebidas++] = nuevoitem;
             break;
-        case 4:
+        case 'D':
             if(cant_postres>=TAM){
                 cout<<"Límite de postres alcanzado"<<endl;
                 return;
@@ -440,8 +441,8 @@ void agregar_comida(){
 }
 
 void modificar_comida(){
-    int tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == 0 || tipo_comida == 5){
+	char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == 'E'){
         return; 
     } 
     
@@ -450,7 +451,7 @@ void modificar_comida(){
     cin>>id;
     
     switch(tipo_comida){
-       case 1:
+       case 'A':
             for(int i=0; i<cant_entradas; i++){
                 if(lista_entradas[i].id == id){
                 	cout<<"Nombre actual: "<<lista_entradas[i].nombre<<endl;
@@ -468,7 +469,7 @@ void modificar_comida(){
                 }
             }
             break;
-        case 2:
+        case 'B':
             for(int i=0; i<cant_platos; i++){
                 if(lista_platos[i].id == id){
                 	cout<<"Nombre actual: "<<lista_platos[i].nombre<<endl;
@@ -486,7 +487,7 @@ void modificar_comida(){
                 }
             }
             break;
-        case 3:
+        case 'C':
             for(int i=0; i<cant_bebidas; i++){
                 if(lista_bebidas[i].id == id){
                 	cout<<"Precio actual: "<<lista_bebidas[i].stock<<endl;
@@ -504,7 +505,7 @@ void modificar_comida(){
                 }
             }
             break;
-        case 4:
+        case 'D':
             for(int i=0; i<cant_postres; i++){
                 if(lista_postres[i].id == id){
                 	cout<<"Precio actual: "<<lista_postres[i].stock<<endl;
@@ -527,17 +528,16 @@ void modificar_comida(){
 }
 
 void eliminar_comida(){
-	int tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == 0 || tipo_comida == 5){
+	char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == 'E'){
         return; 
     } 
-    
     char id;
     cout<<"Ingrese ID de la comida a eliminar: ";
     cin>>id;
     
     switch(tipo_comida){
-        case 1:
+        case 'A':
             for (int i = 0; i < cant_entradas; i++) {
                 if (lista_entradas[i].id == id) {
                     lista_entradas[i] = lista_entradas[cant_entradas - 1];
@@ -547,7 +547,7 @@ void eliminar_comida(){
                 }
             }
             break;
-        case 2:
+        case 'B':
             for (int i = 0; i < cant_platos; i++) {
                 if (lista_platos[i].id == id) {
                     lista_platos[i] = lista_platos[cant_platos - 1];
@@ -557,7 +557,7 @@ void eliminar_comida(){
                 }
             }
             break;
-        case 3:
+        case 'C':
             for (int i = 0; i < cant_bebidas; i++) {
                 if (lista_bebidas[i].id == id) {
                     lista_bebidas[i] = lista_bebidas[cant_bebidas - 1];
@@ -567,7 +567,7 @@ void eliminar_comida(){
                 }
             }
             break;
-        case 4:
+        case 'D':
             for (int i = 0; i < cant_postres; i++) {
                 if (lista_postres[i].id == id) {
                     lista_postres[i] = lista_postres[cant_postres - 1];
@@ -582,8 +582,8 @@ void eliminar_comida(){
 }
 
 void agregar_stock() {
-    int tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == 0 || tipo_comida == 5){
+	char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == 'E'){
         return; 
     } 
     char id;
@@ -592,7 +592,7 @@ void agregar_stock() {
     cin >> id;
 
     switch(tipo_comida){
-        case 1:
+        case 'A':
             for (int i = 0; i < cant_entradas; i++) {
                 if (lista_entradas[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -603,7 +603,7 @@ void agregar_stock() {
                 }
             }
             break;
-        case 2:
+        case 'B':
             for (int i = 0; i < cant_platos; i++) {
                 if (lista_platos[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -614,7 +614,7 @@ void agregar_stock() {
                 }
             }
             break;
-        case 3:
+        case 'C':
             for (int i = 0; i < cant_bebidas; i++) {
                 if (lista_bebidas[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -625,7 +625,7 @@ void agregar_stock() {
                 }
             }
             break;
-        case 4:
+        case 'D':
             for (int i = 0; i < cant_postres; i++) {
                 if (lista_postres[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -653,6 +653,7 @@ void menu_administrador(){
 		cout<<"F. Volver"<<endl;
 		cout<<"Seleccione una opcion : ";
 		cin>>menu_admin;
+		menu_admin = toupper(menu_admin);
 	
 	switch (menu_admin){
 			case 'A':
@@ -704,7 +705,7 @@ void menu_cliente(){
         cout << "C. Volver\n";
         cout << "Seleccione una opcion: ";
         cin >> menu_opcion;
-	
+		menu_opcion = toupper(menu_opcion); 
 		switch (menu_opcion){
 			case 'A':
 				//Agregar un contacto
@@ -742,6 +743,7 @@ void sistemaRestaurante(){
         cout<<"D. Salir " << endl;
         cout <<"Seleccione una opcion : " ;
 	    cin>>menu_usuario_rest;
+	    menu_usuario_rest = toupper(menu_usuario_rest);
 	    cout << endl;
 	switch(menu_usuario_rest){
 		case 'A':
@@ -761,7 +763,6 @@ void sistemaRestaurante(){
 			break;
         case 'D':
             cout << "Finalizando el programa" << endl;
-            
             break;
 		default:
 			cout<<"ERROR: Ingrese una opcion valida"<<endl;
