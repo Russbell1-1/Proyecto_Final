@@ -4,11 +4,10 @@
 #include "Restaurante.h"
 using namespace std;
 
-// Función que muestra el menú principal del sistema hotelero
 void Menuinicial(){
     int op;
     do{
-        system("cls"); // Limpia la pantalla para mostrar el menú actualizado
+        system("cls");
         cout<<"===== SISTEMA DE GESTION HOTELERA =====\n";
         cout<<"1. Reservar habitacion\n";
         cout<<"2. Listar habitaciones\n";
@@ -19,11 +18,10 @@ void Menuinicial(){
         cout<<"7. Analisis de datos\n";
         cout<<"8. Acceder al Restaurante\n";
         cout<<"9.Salir";
-        cout<<"Seleccione una opcion: ";
+        cout<<"\nSeleccione una opcion: ";
         cin>>op;
 
-        // Según la opción elegida, se llama a la función correspondiente
-		switch(op){
+        switch(op){
             case 1: RegistrarHuesped(); break;
             case 2: ListarClientes(); break;
             case 3: BuscarHabitacion(); break;
@@ -31,7 +29,7 @@ void Menuinicial(){
             case 5: CalcularMonto(); break;
             case 6: ListarHuespedesOrdenados(); break;
             case 7: AnalisisDeDatos(); break;
-             
+            case 8: sistemaRestaurante(); break; 
         }
-    }while(op!=9); // El menú se repite hasta que el usuario elija salir
+    }while(op!=9);
 }
