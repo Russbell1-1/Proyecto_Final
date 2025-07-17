@@ -5,19 +5,28 @@ using namespace std;
 
 // Accedemos a las variables globales del sistema
 extern Cliente clientes[MAX_CLIENTES];         // Arreglo que guarda los datos de los clientes
-extern int totalClientes;       // Cantidad actual de clientes registrados
+extern int totalClientes;                      // Cantidad actual de clientes registrados
 extern bool habitaciones[FILAS][COLUMNAS];     // Estado de ocupación de habitaciones
 
-// Función que muestra en pantalla la lista de todos los clientes registrados
+// ===============================================
+// Función que muestra la lista de clientes activos
+// ===============================================
+
 void ListarClientes(){
+	
 	// Verifica si hay clientes registrados
 	if(totalClientes==0){
 		cout<<"No hay clientes registrados.\n";
 		return;
-		system("pause");
+		system("pause"); // Esta línea no se ejecutará por el return anterior
 	}
-	// Muestra el listado de clientes
-	cout<<"Lista de Clientes Registrados:\n";
+	
+	// Título del listado
+	cout << "=============================\n";
+	cout << " Lista de Clientes Registrados\n";
+	cout << "=============================\n";
+	
+	// Recorremos y mostramos la información de cada cliente
 	for(int i=0;i<totalClientes;i++){
 		cout<<"Cliente "<<i+1<<":\n";
 		cout<<"Nombre: "<<clientes[i].nombre<<"\n";
