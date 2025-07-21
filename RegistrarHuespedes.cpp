@@ -7,7 +7,18 @@ Cliente clientes[MAX_CLIENTES];
 bool habitaciones[FILAS][COLUMNAS]={false};
 int totalClientes=0;
 
+void MostrarCuadroDePrecios(){
+	cout << "\n+-------------------------------+\n";
+	cout << "|     PRECIOS POR HABITACIÓN    |\n";
+	cout << "+-------------------------------+\n";
+	for(int i=0;i<FILAS;i++){
+		cout << "| Piso " << i+1 << ": S/. " << (100 + i*20) << " por noche     |\n";
+	}
+	cout << "+-------------------------------+\n\n";
+}
+
 void MostrarHabitacionesDisponibles(){
+	MostrarCuadroDePrecios(); // Agregado
 	cout<<"\nEstado de habitaciones (0=Libre, 1=Ocupada):\n";
 	for(int i=0;i<FILAS;i++){
 		cout<<"Piso "<<i+1<<": ";
