@@ -42,6 +42,7 @@ void ActualizarReserva();
 void CalcularMonto();                    
 void ListarHuespedesOrdenados();         
 void AnalisisDeDatos();                  
+void VerHabitacion();
 
 #endif
 
