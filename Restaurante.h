@@ -73,7 +73,7 @@ void verCuentasHabitaciones();
 
 // === ADMINISTRADOR ===
 void menu_administrador();
-int seleccionar_tipo_comida();
+char seleccionar_tipo_comida();
 void agregar_comida();
 void modificar_comida();
 void eliminar_comida();

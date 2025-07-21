@@ -110,45 +110,43 @@ void ver_postres() {
         mostrarItem(lista_postres[i]);
     }
 }
-
-//Funcion mostrar carta, para cliente y administrador
 void ver_carta(){
-	char opcion;
+		char opcion;
 	do{
         cout << "\n=== CARTA DEL RESTAURANTE ===\n";
-		cout<<"1. Entradas"<<endl;
-		cout<<"2. Platos"<<endl;
-		cout<<"3. Bedidas"<<endl;
-		cout<<"4. Postres"<<endl;
-		cout<<"5. Salir"<<endl;
+		cout<<"A. Entradas"<<endl;
+		cout<<"B. Platos"<<endl;
+		cout<<"C. Bedidas"<<endl;
+		cout<<"D. Postres"<<endl;
+		cout<<"E. Salir"<<endl;
+		cout<<"Seleccione una opcion : " ;
 		cin>>opcion;
 		switch(opcion){
-		case '1':
+		case 'A':
 			//  Entradas
 			ver_entradas();
 			break;
-		case '2':
+		case 'B':
 			//  Platos
 			ver_platos();
 			break;
-		case '3':
+		case 'C':
 			//  Bebidas
 			ver_bebidas();
 			break;
-		case '4':
+		case 'D':
 			//  Postres
 			ver_postres();
 			break;
-		case '5':
+		case 'E':
 			//  Salir
-			cout<<" Programa finalizado "<<endl;
 			break;	
 		default:
 			//  Repetir hasta elegir una opcion
-			cout<<"ERROR: Eliga una categoria de la carta (1, 2, 3, 4, 5)"<<endl<<endl;
+			cout<<"ERROR: Eliga una categoria de la carta (A, B, C, D, E)"<<endl<<endl;
 			break;
 	}
-	}while(opcion!='5');
+	}while(opcion!='E');
 }
 
 
@@ -188,7 +186,7 @@ void agregarReservaTrabajador() { // Se agregara reservas atraves de saber la co
         MESASDISPONIBLES--;
         cout << "Reserva agregada correctamente.\n";
     } else {
-        cout << "La mesa ya está ocupada o reservada.\n";
+        cout << "La mesa ya esta ocupada o reservada.\n";
     }
     cout << endl;
 }
@@ -257,6 +255,7 @@ void verHistorialPedidos() {
     cout << endl;
     if (cantPedidos == 0) {
         cout << "Sin registros.\n"; 
+        cout << endl;
         return;
     }
 
@@ -273,6 +272,7 @@ void verCuentasHabitaciones() {
     cout << endl;
     if (totalHabitaciones == 0) {
         cout << "No hay habitaciones registradas.\n";
+        cout << endl;
         return;
     }
 
@@ -283,79 +283,95 @@ void verCuentasHabitaciones() {
     }
 }
 
-//Menu de opciones del trabajador
 void menu_trabajador(){
     char opcion_trabajador;
     do {
         cout << "====== MENU PRINCIPAL - TRABAJADOR ======\n" ;
-        cout << "1. Mostrar mapa de mesas\n" ;
-        cout << "2. Agregar reserva\n" ;
-        cout << "3. Eliminar reserva\n" ;
-        cout << "4. Recibir pedido a cuarto\n" ;
-        cout << "5. Ver historial de pedidos\n" ;
-        cout << "6. Ver montos por habitacion\n" ;
-        cout << "7. Salir\n";
+        cout << "A. Mostrar mapa de mesas\n" ;
+        cout << "B. Agregar reserva\n" ;
+        cout << "C. Eliminar reserva\n" ;
+        cout << "D. Recibir pedido a cuarto\n" ;
+        cout << "E. Ver historial de pedidos\n" ;
+        cout << "F. Ver montos por habitacion\n" ;
+        cout << "G. Salir\n";
         cout << "Seleccione una opcion: ";
         cin >> opcion_trabajador;
+        opcion_trabajador = toupper(opcion_trabajador);
         switch (opcion_trabajador) {
-            case '1': 
+            case 'A': 
                 mostrarMapaMesas();
+                system("pause");
+                system("cls");               
                 break;
-            case '2': 
+            case 'B': 
                 agregarReservaTrabajador();
+                system("pause");
+                system("cls");    
                 break;
-            case '3': 
+            case 'C': 
                 eliminarReservaTrabajador(); 
+                system("pause");
+                system("cls");   
                 break;
-            case '4': 
+            case 'D': 
                 pedirACuarto();
+                system("pause");
+                system("cls");   
                 break;
-            case '5': 
+            case 'E': 
                 verHistorialPedidos();
+                system("pause");
+                system("cls");   
                 break;
-            case '6': 
+            case 'F': 
                 verCuentasHabitaciones();
+                system("pause");
+                system("cls");   
                 break;
-            case '7': 
+            case 'G': 
                 cout << endl;
                 cout << "Saliendo del sistema del trabajador...\n";
+                system("pause");
+                system("cls");  
                 break;
             default: 
                 cout << endl;
-                cout<< "ERROR: Eliga una categoria de la carta (1, 2, 3, 4, 5, 6, 7)" <<endl<<endl;
+                cout<< "ERROR: OPCION INVALIDA (A, B, C, D, E, F, G)" <<endl<<endl;
                 cout << endl;
+                system("pause");
+                system("cls");   
                 break;
         }
-    } while (opcion_trabajador != '7');
+    } while (opcion_trabajador != 'G');
 }
 //ADMINISTRADOR
-int seleccionar_tipo_comida(){
+char seleccionar_tipo_comida(){
     char opcion;
     cout << "Seleccione categoria: " << endl;
-    cout << "1. Entradas" << endl;
-    cout << "2. Platos" << endl;
-    cout << "3. Bebidas" << endl;
-    cout << "4. Postres" << endl;
-    cout << "5. Salir" << endl;
-    cout << "Opcion: ";
+    cout << "A. Entradas" << endl;
+    cout << "B. Platos" << endl;
+    cout << "C. Bebidas" << endl;
+    cout << "D. Postres" << endl;
+    cout << "E. Salir" << endl;
+    cout << "Seleccione una opcion : ";
     cin >> opcion;
-
-    if (opcion == '1' || opcion == '2' || opcion == '3' || opcion == '4') {
-        return opcion;
-    } else if (opcion == '5') {
-        return '5'; // Salida válida
-    } else {
-        cout << "ERROR: Opción inválida." << endl;
-        return '0';
+    opcion = toupper(opcion);
+    switch(opcion) {
+        case 'A':
+        case 'B':
+        case 'C':
+        case 'D':
+        case 'E':
+            return opcion;
+        default:
+            cout << "ERROR: OPCIÓN INVÁLIDA" << endl;
+            return seleccionar_tipo_comida(); // Vuelve a pedir opción
     }
 }
-
-//Funcion agregar comida
 void agregar_comida(){
     cout << "\n=== AGREGAR ITEM AL MENU ===\n";
-
 	char tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == '0' || tipo_comida == '5'){
+	if (tipo_comida == 'E'){
         return; 
     } 
 	
@@ -372,28 +388,28 @@ void agregar_comida(){
     cin >> nuevoitem.stock;
     
     switch(tipo_comida){
-        case '1':
+        case 'A':
             if(cant_entradas>=TAM){
                 cout<<"Límite de entradas alcanzado"<<endl;
                 return;
             }
             lista_entradas[cant_entradas++] = nuevoitem;
             break;
-        case '2':
+        case 'B':
             if(cant_platos>=TAM){
                 cout<<"Límite de platos alcanzado"<<endl;
                 return;
             }
             lista_platos[cant_platos++] = nuevoitem;
             break;
-        case '3':
+        case 'C':
             if(cant_bebidas>=TAM){
                 cout<<"Límite de bebidas alcanzado"<<endl;
                 return;
             }
             lista_bebidas[cant_bebidas++] = nuevoitem;
             break;
-        case '4':
+        case 'D':
             if(cant_postres>=TAM){
                 cout<<"Límite de postres alcanzado"<<endl;
                 return;
@@ -405,10 +421,9 @@ void agregar_comida(){
     cout<<" Comida agregada exitosamente "<<endl;
 }
 
-//Modificar comida funcion administrador
 void modificar_comida(){
-    char tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == '0' || tipo_comida == '5'){
+	char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == 'E'){
         return; 
     } 
     
@@ -417,7 +432,7 @@ void modificar_comida(){
     cin>>id;
     
     switch(tipo_comida){
-       case '1':
+       case 'A':
             for(int i=0; i<cant_entradas; i++){
                 if(lista_entradas[i].id == id){
                 	cout<<"Nombre actual: "<<lista_entradas[i].nombre<<endl;
@@ -435,7 +450,7 @@ void modificar_comida(){
                 }
             }
             break;
-        case '2':
+        case 'B':
             for(int i=0; i<cant_platos; i++){
                 if(lista_platos[i].id == id){
                 	cout<<"Nombre actual: "<<lista_platos[i].nombre<<endl;
@@ -453,7 +468,7 @@ void modificar_comida(){
                 }
             }
             break;
-        case '3':
+        case 'C':
             for(int i=0; i<cant_bebidas; i++){
                 if(lista_bebidas[i].id == id){
                 	cout<<"Precio actual: "<<lista_bebidas[i].stock<<endl;
@@ -471,7 +486,7 @@ void modificar_comida(){
                 }
             }
             break;
-        case '4':
+        case 'D':
             for(int i=0; i<cant_postres; i++){
                 if(lista_postres[i].id == id){
                 	cout<<"Precio actual: "<<lista_postres[i].stock<<endl;
@@ -493,20 +508,17 @@ void modificar_comida(){
     cout<< "ID no encontrado"<<endl;
 }
 
-//Funcion eliminar comida de administrador
-
 void eliminar_comida(){
 	char tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == '0' || tipo_comida == '5'){
+	if (tipo_comida == 'E'){
         return; 
     } 
-    
     char id;
     cout<<"Ingrese ID de la comida a eliminar: ";
     cin>>id;
     
     switch(tipo_comida){
-        case '1':
+        case 'A':
             for (int i = 0; i < cant_entradas; i++) {
                 if (lista_entradas[i].id == id) {
                     lista_entradas[i] = lista_entradas[cant_entradas - 1];
@@ -516,7 +528,7 @@ void eliminar_comida(){
                 }
             }
             break;
-        case '2':
+        case 'B':
             for (int i = 0; i < cant_platos; i++) {
                 if (lista_platos[i].id == id) {
                     lista_platos[i] = lista_platos[cant_platos - 1];
@@ -526,7 +538,7 @@ void eliminar_comida(){
                 }
             }
             break;
-        case '3':
+        case 'C':
             for (int i = 0; i < cant_bebidas; i++) {
                 if (lista_bebidas[i].id == id) {
                     lista_bebidas[i] = lista_bebidas[cant_bebidas - 1];
@@ -536,7 +548,7 @@ void eliminar_comida(){
                 }
             }
             break;
-        case '4':
+        case 'D':
             for (int i = 0; i < cant_postres; i++) {
                 if (lista_postres[i].id == id) {
                     lista_postres[i] = lista_postres[cant_postres - 1];
@@ -550,11 +562,9 @@ void eliminar_comida(){
     cout<<"ID no encontrado"<<endl;
 }
 
-//Funcion agregar stock o ingredientes disponibles para comida de administrador
-
 void agregar_stock() {
-    char tipo_comida = seleccionar_tipo_comida();
-	if (tipo_comida == '0' || tipo_comida == '5'){
+	char tipo_comida = seleccionar_tipo_comida();
+	if (tipo_comida == 'E'){
         return; 
     } 
     char id;
@@ -563,7 +573,7 @@ void agregar_stock() {
     cin >> id;
 
     switch(tipo_comida){
-        case '1':
+        case 'A':
             for (int i = 0; i < cant_entradas; i++) {
                 if (lista_entradas[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -574,7 +584,7 @@ void agregar_stock() {
                 }
             }
             break;
-        case '2':
+        case 'B':
             for (int i = 0; i < cant_platos; i++) {
                 if (lista_platos[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -585,7 +595,7 @@ void agregar_stock() {
                 }
             }
             break;
-        case '3':
+        case 'C':
             for (int i = 0; i < cant_bebidas; i++) {
                 if (lista_bebidas[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -596,7 +606,7 @@ void agregar_stock() {
                 }
             }
             break;
-        case '4':
+        case 'D':
             for (int i = 0; i < cant_postres; i++) {
                 if (lista_postres[i].id == id) {
                     cout << "¿Cuanto stock desea agregar?: ";
@@ -612,108 +622,136 @@ void agregar_stock() {
     cout << "ID no encontrado"<<endl;
 }
 
-//TRABAJADOR
-
 void menu_administrador(){
 	char menu_admin;
 	do{
-        cout << "\n=== MENU ADMINISTRADOR ===\n";
-		cout<<"Seleccione la opcion"<<endl;
+        cout << "=== MENU ADMINISTRADOR ===\n";
 		cout<<"A. Ver carta"<<endl;
 		cout<<"B. Agregar comida"<<endl;
 		cout<<"C. Modificar comida"<<endl;
 		cout<<"D. Eliminar comida"<<endl;
 		cout<<"E. Agregar stock"<<endl;
 		cout<<"F. Volver"<<endl;
+		cout<<"Seleccione una opcion : ";
 		cin>>menu_admin;
+		menu_admin = toupper(menu_admin);
 	
 	switch (menu_admin){
 			case 'A':
 				//Ver carta
 				ver_carta();
+				system("pause");
+                system("cls");   
 				break;
 			case 'B':
 				//Agregar comida
 				agregar_comida();
+				system("pause");
+                system("cls");   
 				break;
 			case 'C':
 				//Modificar comida
 				modificar_comida();
+				system("pause");
+                system("cls");   
 				break;
-			case 'D':
+			case 'D':	
 				//Eliminar comida
 				eliminar_comida();
+				system("pause");
+                system("cls");  
 				break;
 			case 'E':
 				//Agregar stock
 				agregar_stock();
+				system("pause");
+                system("cls");   
 				break;
 			case 'F':
 				//Salir del programa
-				cout<<"Programa finalizado"<<endl;
+				cout << endl;
+                cout << "Saliendo del sistema del administrador...\n";
+                system("pause");
+                system("cls");   
 				break;	
 			default:
 				//Repetir menu hasta elegir una opcion
 				cout<<"ERROR: Eliga una opcion del menu (A, B, C, D, E, F)"<<endl<<endl;
+				system("pause");
+                system("cls");   
 				break;
 	}
 	}while(menu_admin!='F');
 }
 
-//Funcion principal del menu cliente
-
 void menu_cliente(){
 	char menu_opcion;
 	do{
-		cout << "\n=== MENU CLIENTE ===\n";
+		cout << "=== MENU CLIENTE ===\n";
         cout << "A. Ver carta\n";
         cout << "B. Reservar mesa\n";
         cout << "C. Volver\n";
         cout << "Seleccione una opcion: ";
         cin >> menu_opcion;
-	
+		menu_opcion = toupper(menu_opcion); 
 		switch (menu_opcion){
 			case 'A':
 				//Agregar un contacto
 				ver_carta();
+				system("pause");
+                system("cls");  ; 
 				break;
 			case 'B':
 				//Eliminar un contacto
 				agregarReservaTrabajador();
+				system("pause");
+                system("cls");  ; 
 				break;
 			case 'C':
 				//Salir del programa
-				cout<<"Programa finalizado"<<endl;
-				break;	
+				cout << endl;
+				cout<<"Saliendo del sistema de cliente...." << endl;
+				system("pause");
+                system("cls");  ; 
+				break;
 			default:
 				//Repetir menu hasta elegir una opcion
 				cout << " ERROR: Eliga una opcion del menu (A, B, C)" <<endl <<endl;
+				system("pause");
+                system("cls");  ; 
 				break;
 	}
 	}while(menu_opcion!= 'C');
 }
 
-//Menu principal del restaurante para seleccionar usuario
-
 void sistemaRestaurante(){
     inicializadorDatos();
 	char menu_usuario_rest;
     do { 
-	    cout<<endl<<"\n===Ingrese el usuario===\n"<<endl;
+	    cout<<"=== INGRESE EL USUARIO ==="<<endl;
 	    cout<<"A. Cliente"<<endl;
 	    cout<<"B. Trabajador"<<endl;
 	    cout<<"C. Administrador"<<endl;
         cout<<"D. Salir " << endl;
+        cout <<"Seleccione una opcion : " ;
 	    cin>>menu_usuario_rest;
+	    menu_usuario_rest = toupper(menu_usuario_rest);
+	    cout << endl;
 	switch(menu_usuario_rest){
 		case 'A':
+			system("cls");
 			menu_cliente();
+			system("cls");
 			break;
 		case 'B':
+			system("cls");
 			menu_trabajador();
+			system("cls");
 			break;
 		case 'C':
+			system("cls");
 			menu_administrador();
+			system("cls");
 			break;
         case 'D':
             cout << "Finalizando el programa" << endl;
@@ -724,8 +762,3 @@ void sistemaRestaurante(){
 	}
     } while (menu_usuario_rest !='D');
 }
-
-//int main(){
-//	sistemaRestaurante();
-//	return 0;
-//}
