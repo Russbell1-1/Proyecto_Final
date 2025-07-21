@@ -33,7 +33,7 @@ void ListarClientes(){
 		cout << "Nombre: " << clientes[i].nombre << "\n";
 		cout << "Apellido: " << clientes[i].apellido << "\n";
 		cout << "Edad: " << clientes[i].edad << "\n";
-		cout << "Habitación: Piso " << clientes[i].piso << ", Nro " << clientes[i].habitacion << "\n";
+		cout << "Habitacion: Piso " << clientes[i].piso << ", Nro " << clientes[i].habitacion << "\n";
 		cout << "--------------------------\n";
 	}
 

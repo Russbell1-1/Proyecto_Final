@@ -41,7 +41,7 @@ void ListarHuespedesOrdenados(){
 		cout<<"Nombre: "<<copia[i].nombre<<"\n";
 		cout<<"Apellido: "<<copia[i].apellido<<"\n";
 		cout<<"Edad: "<<copia[i].edad<<"\n";
-		cout<<"Habitación: Piso "<<copia[i].piso<<", Nro "<<copia[i].habitacion<<"\n";
+		cout<<"Habitacion: Piso "<<copia[i].piso<<", Nro "<<copia[i].habitacion<<"\n";
 		cout<<"--------------------------\n";
 	}
 	system("pause");
