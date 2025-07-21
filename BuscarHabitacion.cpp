@@ -3,22 +3,20 @@
 #include "Menu.h"
 using namespace std;
 
-// Variables externas que contienen la información de los clientes
 extern Cliente clientes[MAX_CLIENTES];
 extern int totalClientes;
 
-// Función que permite buscar la habitación asignada a un cliente por su nombre y apellido
 void BuscarHabitacion(){
-	// Verifica si hay clientes registrados
+	
 	if(totalClientes==0){
 		cout<<"No hay clientes registrados.\n";
+		system("pause");
 		return;
 	}
 
-	// Se pide el nombre y apellido a buscar
 	char nombreBuscado[30], apellidoBuscado[30];
 
-	cin.ignore(); // <<--- IMPORTANTE: limpiar el salto de línea previo
+	cin.ignore(); 
 	cout<<"Ingrese el nombre del cliente: ";
 	cin.getline(nombreBuscado,30);
 	cout<<"Ingrese el apellido del cliente: ";
