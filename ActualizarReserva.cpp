@@ -12,6 +12,7 @@ extern bool habitaciones[FILAS][COLUMNAS];
 void ActualizarReserva(){
 	if(totalClientes==0){
 		cout<<"No hay clientes registrados.\n";
+		system("pause");
 		return;
 	}
 
